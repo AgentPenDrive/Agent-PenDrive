@@ -4,23 +4,10 @@ IF NOT EXIST "%RAM%\SYSTEM\setup" MKDIR "%RAM%\SYSTEM\setup"
 :INITIAL_SETUP -----------------------------------------------------------------
 CLS
 CALL "$reg" /reg -rm_keyfile "KEY_LOCAL_CONFIG"
-PAUSE
-
-CLS
 CALL "$reg" /reg -md_keyfile "KEY_LOCAL_CONFIG"
-PAUSE
-
-CLS
 CALL "$reg" /reg -load "KEY_LOCAL_CONFIG"
-PAUSE
-
-CLS
 CALL "$reg" /create -dir "KEY_LOCAL_CONFIG\SYSTEM"
-PAUSE
-
-CLS
 CALL "$reg" /create -file "KEY_LOCAL_CONFIG\ap_conf" "[MAIN]" "AP_VER" "01.06.00"
-PAUSE
 
 :LANGUAGE_SETUP ----------------------------------------------------------------
 CLS
