@@ -1,0 +1,6 @@
+OPEN agent-pendrive.c0.pl
+apd2012@agent-pendrive.c0.pl
+AGENTPENDRIVE2012
+GET updates\ver.ap_inf
+CLOSE
+QUIT

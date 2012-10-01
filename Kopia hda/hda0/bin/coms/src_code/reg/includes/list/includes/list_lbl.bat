@@ -1,0 +1,3 @@
+SET CHAR=%1
+SET CHAR=%CHAR:~0,1%
+IF "%CHAR%"=="[" ECHO %1>>%2

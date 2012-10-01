@@ -1,0 +1,12 @@
+:MENU "Dodaj lub usuä Aplikacj©" [x]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Dodaj Aplikacj©              ]
+[Usuä Aplikacj©               ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ %MENU_TIME% - %MENU_DATE%       [<--]
+:: -----------------------------------------------------------------------------
+:ERROR_APP_NOT_EXIST "Usuä Aplikacj©" [x]
+Bˆ¥d! Nie mo¾na odnale«† aplikacji!
+Upewnij si© czy napewno zostaˆa
+poprawnie zainstalowana.
+             [OK]
