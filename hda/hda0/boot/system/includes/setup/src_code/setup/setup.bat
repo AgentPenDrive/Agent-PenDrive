@@ -7,7 +7,9 @@ CALL "$reg" /reg -rm_keyfile "KEY_LOCAL_CONFIG"
 CALL "$reg" /reg -md_keyfile "KEY_LOCAL_CONFIG"
 CALL "$reg" /reg -load "KEY_LOCAL_CONFIG"
 CALL "$reg" /create -dir "KEY_LOCAL_CONFIG\SYSTEM"
+PAUSE
 CALL "$reg" /create -file "KEY_LOCAL_CONFIG\ap_conf" "[MAIN]" "AP_VER" "01.06.00"
+PAUSE
 
 :LANGUAGE_SETUP ----------------------------------------------------------------
 CLS
@@ -16,17 +18,16 @@ CALL "W.BAT" LIST @%RAM%\SYSTEM\setup\list.xml
 IF %ERRORLEVEL%==254 GOTO LANGUAGE_SETUP
 SET AP_LANG=%WBAT%
 CALL "$reg" /create -key "KEY_LOCAL_CONFIG\ap_conf" "[MAIN]" "AP_LANG" "%WBAT%"
-PAUSE
 GOTO MODULES_INSTALLATION
 
 :MODULES_INSTALLATION ----------------------------------------------------------
 CLS
 :: CREATE_MODULES_REG ----------------------------------------------------------
 CALL "$reg" /create -dir "KEY_LOCAL_CONFIG\SYSTEM\modules"
-PAUSE
 :: COMPONENTS_INSTALLATION -----------------------------------------------------
 CALL "$copyright" /down
 CALL "W.BAT" BOX @%SYSTEM_DIR%\langs\setup\%AP_LANG%.xml:MODULES_INSTALLATION
+PAUSE
 IF %ERRORLEVEL%==1 GOTO LANGUAGE_SETUP
 IF %ERRORLEVEL%==2 (
   IF %WCB1%==1 CALL "$run" %AP_DIR%\bin\mods\fs_man.ap_app /setup -install
