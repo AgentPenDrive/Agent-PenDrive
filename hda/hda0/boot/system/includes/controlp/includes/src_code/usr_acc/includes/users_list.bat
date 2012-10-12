@@ -1,7 +1,7 @@
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane moduly" [x]>"%RAM%\SYSTEM\controlp\usr_acc\users.xml"
-CALL "$reg" /list -value KEY_LOCAL_CONFIG\SYSTEM\acceser\conf %RAM%\SYSTEM\controlp\usr_acc\users.xml
+CALL "$reg" /list -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 SORT "%RAM%\SYSTEM\controlp\usr_acc\users.xml" /O "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 
 :USERS_LIST --------------------------------------------------------------------

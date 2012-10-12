@@ -1,7 +1,7 @@
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane moduly" [x]>"%RAM%\SYSTEM\controlp\usr_acc\users.xml"
-CALL "$reg" /list -value KEY_LOCAL_CONFIG\SYSTEM\acceser\conf %RAM%\SYSTEM\controlp\usr_acc\users.xml
+CALL "$reg" /list -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 SORT "%RAM%\SYSTEM\controlp\usr_acc\users.xml" /O "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 
 :USERS_LIST --------------------------------------------------------------------
@@ -20,7 +20,7 @@ IF %USER_NAME%==%AP_USERNAME% FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\
   CALL WBAT BOX "%%b" OK
   GOTO END
 )
-CALL "$reg" /remove -value KEY_LOCAL_CONFIG\SYSTEM\acceser\conf [USERS] %USER_NAME%
+CALL "$reg" /remove -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%USER_NAME%"
 GOTO END
 
 :END ---------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane moduly" [x]>"%RAM%\SYSTEM\controlp\usr_acc\users.xml"
-CALL "$reg" /list -value KEY_LOCAL_CONFIG\SYSTEM\acceser\conf %RAM%\SYSTEM\controlp\usr_acc\users.xml
+CALL "$reg" /list -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 SORT "%RAM%\SYSTEM\controlp\usr_acc\users.xml" /O "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 
 :USERS_LIST --------------------------------------------------------------------
@@ -29,7 +29,7 @@ GOTO DIALOG
 
 :CHECK -------------------------------------------------------------------------
 CLS
-CALL "$reg" /load KEY_LOCAL_CONFIG\SYSTEM\acceser\conf [USERS] %USER_NAME% PASS_TPL
+CALL "$reg" /load "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%USER_NAME%" "PASS_TPL"
 IF "%PASS_NEW%"=="" FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml) do IF %%a==NOT_EQU (
   CALL WBAT BOX "%%b" OK
   GOTO DIALOG
@@ -54,7 +54,7 @@ IF NOT "%PASS_NEW%"=="%PASS_NEW2%" FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_
   GOTO DIALOG
 )
 IF "%PASS_OLD%"=="%PASS_TPL%" (
-  CALL "$reg" /create -value KEY_LOCAL_CONFIG\SYSTEM\acceser\conf [USERS] %USER_NAME% "%PASS_NEW%"
+  CALL "$reg" /create -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%USER_NAME%" "%PASS_NEW%"
   FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml) do IF %%a==VALID (
     CALL WBAT BOX "%%b" OK
   )
