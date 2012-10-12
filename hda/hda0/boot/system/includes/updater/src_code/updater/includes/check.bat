@@ -7,7 +7,7 @@ IF NOT EXIST "ver.ap_inf" (
 )
 
 :: GET_CURRENT_VERSION_NR ------------------------------------------------------
-CALL "$reg" /load KEY_LOCAL_CONFIG\ap_conf [MAIN] AP_VER AP_VER
+CALL "$reg" /load "KEY_LOCAL_CONFIG\ap_conf" "[MAIN]" "AP_VER" "AP_VER"
 
 :: CHECK_UPDATE ----------------------------------------------------------------
 FOR /F "eol=# tokens=1,2 delims==" %%a in (ver.ap_inf) do IF %%a==1.6 (

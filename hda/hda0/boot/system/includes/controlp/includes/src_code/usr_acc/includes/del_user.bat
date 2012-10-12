@@ -6,7 +6,7 @@ SORT "%RAM%\SYSTEM\controlp\usr_acc\users.xml" /O "%RAM%\SYSTEM\controlp\usr_acc
 
 :USERS_LIST --------------------------------------------------------------------
 CLS
-WBAT TEXT 80,1 (light white on light red) @%SYSTEM_DIR%\langs\system\%AP_LANG%.xml:COPYRIGHT
+CALL "$copyright" /down
 CALL "W.BAT" LIST @"%RAM%\SYSTEM\controlp\usr_acc\users.xml"
 IF %ERRORLEVEL%==254 GOTO END
 IF NOT %ERRORLEVEL%==254 (

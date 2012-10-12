@@ -45,7 +45,7 @@ SET LIST_FILE=%LIST_FILE:~0,-1%
 :: ------------------------
 IF NOT EXIST "%FILE%" GOTO END
 SET CHAR=
-FOR /F "tokens=1,2 delims==" %%a in (%FILE%) do CALL "%COMDIR%\includes\list\includes\list_lbl.bat" %%a %LIST_FILE%
+FOR /F "tokens=1,2 delims==" %%a in (%FILE%) do CALL "%COMDIR%\includes\list\includes\list_lbl.bat" "%%a"
 SET CHAR=
 GOTO END
 
@@ -55,12 +55,12 @@ SET FILE=%2
 SET LIST_FILE=%3
 :: VAR_CUT-----------------
 SET FILE=%FILE:~1%
-SET FILE=%REG%\FILE:~0,-1%.ap_ini
+SET FILE=%REG%\%FILE:~0,-1%.ap_ini
 SET LIST_FILE=%LIST_FILE:~1%
 SET LIST_FILE=%LIST_FILE:~0,-1%
 :: ------------------------
 IF NOT EXIST "%FILE%" GOTO END
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (%FILE%) do CALL "%COMDIR%\includes\list\includes\list_key.bat" %%a %LIST_FILE%
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (%FILE%) do CALL "%COMDIR%\includes\list\includes\list_key.bat" "%%a"
 GOTO END
 
 :END ---------------------------------------------------------------------------

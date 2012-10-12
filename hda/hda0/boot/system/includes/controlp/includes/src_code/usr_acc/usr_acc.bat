@@ -4,7 +4,7 @@ IF NOT EXIST "%RAM%\SYSTEM\controlp\usr_acc" MD "%RAM%\SYSTEM\controlp\usr_acc"
 
 :MENU --------------------------------------------------------------------------
 CLS
-WBAT TEXT 80,1 (light white on light red) @%SYSTEM_DIR%\langs\system\%AP_LANG%.xml:COPYRIGHT
+CALL "$copyright" /down
 CALL "W.BAT" BOX @"%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml":MENU
 IF %ERRORLEVEL%==1 CALL "includes\add_user.bat" & SET ERRORLEVEL=
 IF %ERRORLEVEL%==2 CALL "includes\del_user.bat" & SET ERRORLEVEL=

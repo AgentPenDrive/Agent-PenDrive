@@ -4,7 +4,7 @@ IF NOT EXIST "%RAM%\SYSTEM\controlp" MD "%RAM%\SYSTEM\controlp"
 
 :MENU --------------------------------------------------------------------------
 CLS
-WBAT TEXT 80,1 (light white on light red) @%SYSTEM_DIR%\langs\system\%AP_LANG%.xml:COPYRIGHT
+CALL "$copyright" /down
 WBAT BOX @%SYSTEM_DIR%\langs\controlp\%AP_LANG%\controlp.xml:MENU
 IF %ERRORLEVEL%==1 CALL "$run" %SYSTEM_DIR%\includes\controlp\includes\sec_cen.ap_app
 IF %ERRORLEVEL%==2 CALL "$run" %SYSTEM_DIR%\includes\controlp\includes\usr_acc.ap_app

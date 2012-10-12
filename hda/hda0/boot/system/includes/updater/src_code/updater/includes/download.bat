@@ -2,7 +2,7 @@
 IF NOT EXIST "%AP_TMP%\SYSTEM\updater\download" MD "%AP_TMP%\SYSTEM\updater\download"    
 
 :: GET_CURRENT_VERSION_NR ------------------------------------------------------
-CALL "$reg" /load KEY_LOCAL_CONFIG\ap_conf [MAIN] AP_VER AP_VER
+CALL "$reg" /load "KEY_LOCAL_CONFIG\ap_conf" "[MAIN]" "AP_VER" "AP_VER"
 
 :: CREATE_DOWNLOAD_FILE --------------------------------------------------------
 FOR /F "eol=# tokens=1,2,3,4,5,6,7 delims==" %%a in (ver.ap_inf) do IF %%a==1.6 (

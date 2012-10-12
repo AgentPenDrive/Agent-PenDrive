@@ -1,11 +1,11 @@
 :: -----------------------------------------------------------------------------
 
 :CHECK_LOGIN -----------------------------------------------
-CALL "$reg" /if_exist -value KEY_LOCAL_CONFIG\SYSTEM\acceser\conf %LOGIN%
+CALL "$reg" /if_exist -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%LOGIN%"
 IF %if_exist%==false GOTO INVALID
 
 :CHECK_PASSWORD --------------------------------------------
-CALL "$reg" /load KEY_LOCAL_CONFIG\SYSTEM\acceser\conf [USERS] %LOGIN% PASS_TPL
+CALL "$reg" /load "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%LOGIN%" "PASS_TPL"
 IF NOT #%PASS%==#%PASS_TPL% GOTO INVALID
 
 :: -----------------------------------------------------------------------------

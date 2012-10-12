@@ -40,14 +40,14 @@ SET LABEL=%LABEL:~1%
 SET LABEL=%LABEL:~0,-1%
 :: ------------------------
 IF NOT EXIST "%FILE%" GOTO NOT_EXIST
-FOR /F "tokens=1 delims=" %%a in (%FILE%) do IF %%a==%LABEL% GOTO EXIST
+FOR /F "tokens=1 delims=" %%a in (%FILE%) do IF "%%a"=="%LABEL%" GOTO EXIST
 GOTO NOT_EXIST
 GOTO IF_EXIST_LBL
 
 :IF_EXIST_KEY ----------------------------------------------
 :: VAR_SET ----------------
 SET FILE=%2
-SET KEY=%4
+SET KEY=%3
 :: VAR_CUT-----------------
 SET FILE=%FILE:~1%
 SET FILE=%REG%\%FILE:~0,-1%.ap_ini
@@ -55,7 +55,7 @@ SET KEY=%KEY:~1%
 SET KEY=%KEY:~0,-1%
 :: ------------------------
 IF NOT EXIST "%FILE%" GOTO NOT_EXIST
-FOR /F "eol=[ tokens=1 delims==" %%a in (%FILE%) do IF %%a==%KEY% GOTO EXIST
+FOR /F "eol=[ tokens=1 delims==" %%a in (%FILE%) do IF "%%a"=="%KEY%" GOTO EXIST
 GOTO NOT_EXIST
 GOTO IF_EXIST_VALUE
 
@@ -70,7 +70,7 @@ SET VALUE=%VALUE:~1%
 SET VALUE=%VALUE:~0,-1%
 :: ------------------------
 IF NOT EXIST "%FILE%" GOTO NOT_EXIST
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (%FILE%) do IF %%b==%VALUE% GOTO EXIST
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (%FILE%) do IF "%%b"=="%VALUE%" GOTO EXIST
 GOTO NOT_EXIST
 GOTO IF_EXIST_VALUE
 

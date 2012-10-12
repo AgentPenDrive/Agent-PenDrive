@@ -6,7 +6,6 @@ IF NOT EXIST "%RAM%\SYSTEM" MD "%RAM%\SYSTEM"
 :SETUP -------------------------------------------------------------------------
 CLS
 CALL "$run" %SYSTEM_DIR%\includes\setup\setup.ap_app
-GOTO SETUP
 
 :UPDATER -----------------------------------------------------------------------
 CLS
@@ -16,17 +15,14 @@ CALL "$run" %SYSTEM_DIR%\includes\updater\updater.ap_app
 CLS
 CALL "$run" %SYSTEM_DIR%\includes\acceser\acceser.ap_app
 IF %ACCESER%=="" GOTO ACCESER
-
 IF %ACCESER%==true (
 SET ACCESER=
 GOTO MENU
 )
-
 IF %ACCESER%==false (
 SET ACCESER=
 GOTO ACCESER
 )
-
 IF %ACCESER%==EXIT (
 SET ACCESER=
 GOTO END
@@ -50,10 +46,10 @@ IF %ERRORLEVEL%==6 CALL "$run" %SYSTEM_DIR%\includes\help\help.ap_app & SET ERRO
 IF %ERRORLEVEL%==7 CALL "$run" %SYSTEM_DIR%\includes\run\run.ap_app & SET ERRORLEVEL=
 IF %ERRORLEVEL%==8 GOTO END
 IF %ERRORLEVEL%==9 (
-CLS
-SET
-PAUSE
-CLS
+  CLS
+  SET
+  PAUSE
+  CLS
 )
 IF %ERRORLEVEL%==100 SET AP_USERNAME="" & GOTO ACCESER
 GOTO MENU

@@ -5,8 +5,8 @@ SET PASS=
 GOTO MENU
 
 :MENU --------------------------------------------------------------------------
-CLS
-WBAT TEXT 80,1 (light white on light red) @%SYSTEM_DIR%\langs\system\%AP_LANG%.xml:COPYRIGHT
+CLS                    
+CALL "$copyright" /down
 CALL "W.BAT" BOX @%SYSTEM_DIR%\langs\acceser\%AP_LANG%.xml:MENU
 IF %ERRORLEVEL%==1 GOTO CHECK
 IF %ERRORLEVEL%==2 GOTO EXIT

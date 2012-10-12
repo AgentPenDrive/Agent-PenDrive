@@ -3,10 +3,12 @@ FOR /F "tokens=1,2 delims==" %%a in (langs\%AP_LANG%.xml) do IF %%a==APP_NAME CA
 CALL "$reg" /create -key "KEY_LOCAL_CONFIG\SYSTEM\modules\conf" "[SECURITY]" "link" "bin\mods\security.ap_app"  
 
 :OPTIONAL_KEYS_INSTALL ---------------------------------------------------------
-CALL "$reg" /create -dir KEY_LOCAL_CONFIG\MODULES\security
+CALL "$reg" /create -dir "KEY_LOCAL_CONFIG\MODULES\security"
 
 :SETUP -------------------------------------------------------------------------
 CALL "W.BAT" BOX @langs\%AP_LANG%.xml:SETUP
+ECHO %ERRORLEVEL%
+PAUSE
 IF %ERRORLEVEL%==1 CALL "$browser" /dir -n %CD%
 IF %ERRORLEVEL%==2 GOTO ADD
 IF %ERRORLEVEL%==3 (
@@ -15,6 +17,7 @@ IF %ERRORLEVEL%==3 (
   GOTO LIST
 )
 IF %ERRORLEVEL%==4 GOTO NEXT
+IF %ERRORLEVEL%==100 GOTO BACK
 GOTO SETUP
 
 :ADD ---------------------------------------------------------------------------
@@ -28,19 +31,19 @@ IF "%RESULT%"=="" (
   GOTO SETUP
 )
 :: ERROR_CHECK_2 ---------------------------------------------------------------
-CALL "$reg" /if_exist -key KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] %NAME%
+CALL "$reg" /if_exist -key "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%NAME%"
 IF %if_exist%==true (
   FOR /F "tokens=1,2 delims==" %%a in (langs\%AP_LANG%.xml) do IF %%a==NAME_EXIST WBAT BOX %%b OK
   GOTO SETUP
 )
-CALL "$reg" /if_exist -value KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] %RESULT%
+CALL "$reg" /if_exist -value "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%RESULT%"
 IF %if_exist%==true (
   FOR /F "tokens=1,2 delims==" %%a in (langs\%AP_LANG%.xml) do IF %%a==PATH_EXIST WBAT BOX %%b OK
   GOTO SETUP
 )
 :: ADD -------------------------------------------------------------------------
-CALL "$reg" /create -file KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] "%NAME%" "%RESULT%"
-CALL "$reg" /create -key KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] "%NAME%" "%RESULT%"
+CALL "$reg" /create -file "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%NAME%" "%RESULT%"
+CALL "$reg" /create -key "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%NAME%" "%RESULT%"
 :: -----------------------------------------------------------------------------
 SET NAME=
 SET RESULT=
@@ -50,7 +53,7 @@ GOTO SETUP
 :: DELETE_LIST-IF_EXIST --------------------------------------------------------
 IF EXIST "%RAM%\MODULES\security\list.xml" DEL "%RAM%\MODULES\security\list.xml"
 :: CREATE_LIST -----------------------------------------------------------------
-CALL "$reg" /list -key KEY_LOCAL_CONFIG\MODULES\security\conf %RAM%\MODULES\security\list.xml
+CALL "$reg" /list -key "KEY_LOCAL_CONFIG\MODULES\security\conf" "%RAM%\MODULES\security\list.xml"
 IF NOT EXIST "%RAM%\MODULES\security\list.xml" (
   FOR /F "eol=[ tokens=1,2 delims==" %%a in (langs\%AP_LANG%.xml) do IF %%a==NO_PATHS WBAT BOX %%b OK
   GOTO SETUP
@@ -59,10 +62,9 @@ SORT "%RAM%\MODULES\security\list.xml" /O "%RAM%\MODULES\security\list.xml"
 :: PATHS_LIST ------------------------------------------------------------------
 CALL "$copyright" /down
 CALL "W.BAT" LIST @"%RAM%\MODULES\security\list.xml"
-IF EXIST "%RAM%\MODULES\security\list.xml" DEL "%RAM%\MODULES\security\list.xml"
 IF %ERRORLEVEL%==254 GOTO SETUP
 :: EDIT_VARS -------------------------------------------------------------------
-CALL "$reg" /load KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] %WBAT% RESULT
+CALL "$reg" /load "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%WBAT%" "RESULT"
 SET NAME=%WBAT%
 SET PATH_NAME=%WBAT%
 :: PATHS_OPTIONS ---------------------------------------------------------------
@@ -71,6 +73,7 @@ IF %ERRORLEVEL%==1 GOTO EDIT
 IF %ERRORLEVEL%==2 GOTO REMOVE
 IF %ERRORLEVEL%==3 GOTO LIST
 :: END -------------------------------------------------------------------------
+IF EXIST "%RAM%\MODULES\security\list.xml" DEL "%RAM%\MODULES\security\list.xml"
 GOTO LIST
 
 :EDIT --------------------------------------------------------------------------
@@ -86,8 +89,8 @@ IF %ERRORLEVEL%==3 (
     WBAT BOX %%b OK
     GOTO SETUP
   )
-  CALL "$reg" /remove -key KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] %PATH_NAME%
-  CALL "$reg" /create -key KEY_LOCAL_CONFIG\MODULES\security\conf [PATHS] %NAME% %RESULT%
+  CALL "$reg" /remove -key "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%PATH_NAME%"
+  CALL "$reg" /create -key "KEY_LOCAL_CONFIG\MODULES\security\conf" "[PATHS]" "%NAME%" "%RESULT%"
   GOTO LIST
 )
 IF %ERRORLEVEL%==100 GOTO LIST

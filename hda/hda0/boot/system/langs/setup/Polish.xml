@@ -1,29 +1,27 @@
-:MODULES_INSTALLATION "Wst©pna konfiguracja" [x]
-  Wybierz kt¢re moduˆy chcesz 
-   zainstalowa† w programie:
-ÄÄÄÄÄ Moduˆy w fazie beta ÄÄÄÄÄ
-[!  Asystent Systemu Plik¢w   ]
-[!  Asystent Zabezpieczeä     ]
-ÄÄÄÄÄ Niedost©pne moduˆy ÄÄÄÄÄÄ
-[!  Antywirus                 ]
-[!  Odzyskiwanie danych       ]
+:USRS "Wst©pna konfiguracja" [x]
+     Witaj, aby rozpocz¥†
+korzystanie z programu, musisz
+utworzy† u¾ytkownika (min. 1).
+Aby przyst¥pi† do tworzenia,
+kliknij "Utw¢rz u¾ytkownika".
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-[<ÄÄ Wr¢†]   1/5    [Dalej ÄÄ>]
+[Utw¢rz u¾ytkownika           ]
+[Lista dodanych               ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[<ÄÄ Wr¢†]   1/3    [Dalej ÄÄ>]
 :: -----------------------------------------------------------------------------
 :USRS_ADD "Wst©pna konfiguracja" [x]
     Podaj nazw© u¾ytkownika,
-   kt¢rego b©dziesz u¾ywa†
-       do logowania si©:
+    kt¢rego b©dziesz u¾ywa†
+         do logowania:
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 Login:   [$ LOGIN         ]
 
 Hasˆo:   [$ PASS,P        ]
 
 Powt¢rz: [$ PASS2,P       ]
-
-[Dodaj] [Lista dodanych]
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-[<ÄÄ Wr¢†]   2/5    [Dalej ÄÄ>]
+[<ÄÄ Wr¢†]   1/3        [Dodaj]
 :: -----------------------------------------------------------------------------
 USR_ADDED="U¾ytkownik zostaˆ utworzony!"
 USR_NOT_ADDED="Nie mo¾na byˆo utworzy† u¾ytkownika, poniewa¾ wyst¥piˆ inny bˆ¥d!"
@@ -47,5 +45,17 @@ NO_USR_NXT="Zanim b©dziesz m¢gˆ kontynuowa†, musisz najpierw utworzy† u¾ytkownik
 [Zmieä Hasˆo                  ]
 [Usuä                         ]
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-[<ÄÄ Wr¢†]   2/5
+[<ÄÄ Wr¢†]   1/3
+:: -----------------------------------------------------------------------------
+:MODULES_INSTALLATION "Wst©pna konfiguracja" [x]
+  Wybierz kt¢re moduˆy chcesz 
+   zainstalowa† w programie:
+ÄÄÄÄÄ Moduˆy w fazie beta ÄÄÄÄÄ
+[!  Asystent Systemu Plik¢w   ]
+[!  Asystent Zabezpieczeä     ]
+ÄÄÄÄÄ Niedost©pne moduˆy ÄÄÄÄÄÄ
+[!  Antywirus                 ]
+[!  Odzyskiwanie danych       ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[<ÄÄ Wr¢†]   2/3    [Dalej ÄÄ>]
 :: -----------------------------------------------------------------------------
