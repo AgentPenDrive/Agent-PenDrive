@@ -16,8 +16,8 @@ GOTO MENU
 
 :CREATE ------------------------------------------------------------------------
 :: CHECK_EXISTING ----------------------
-CALL "$reg" /if_exist -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%LOGIN%"
-IF %if_exist%==true FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml) do IF %%a==EXIST (
+CALL "$reg" /if_exist -key "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%LOGIN%"
+IF "%if_exist%"=="true" FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml) do IF %%a==EXIST (
   CALL WBAT BOX "%%b" OK
   GOTO MENU
 )
@@ -31,9 +31,9 @@ IF NOT "%PASS%"=="%PASS2%" FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\lan
 )
 
 :: CREATE ------------------------------
-CALL "$reg" /create -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%LOGIN%" "%PASS%"
-CALL "$reg" /if_exist -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%LOGIN%"
-IF %if_exist%==true FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml) do IF %%a==ADDED (
+CALL "$reg" /create -key "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%LOGIN%" "%PASS%"
+CALL "$reg" /if_exist -key "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%LOGIN%"
+IF "%if_exist%"=="true" FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\controlp\%AP_LANG%\usr_acc.xml) do IF %%a==ADDED (
   CALL WBAT BOX "%%b" OK
   GOTO END
 )

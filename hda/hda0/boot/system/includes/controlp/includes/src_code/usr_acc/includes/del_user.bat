@@ -1,13 +1,14 @@
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane moduly" [x]>"%RAM%\SYSTEM\controlp\usr_acc\users.xml"
-CALL "$reg" /list -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
-SORT "%RAM%\SYSTEM\controlp\usr_acc\users.xml" /O "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
+IF EXIST "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml" DEL "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml"
+CALL "$reg" /list -key "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml"
+SORT "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml" /O "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml"
 
 :USERS_LIST --------------------------------------------------------------------
 CLS
 CALL "$copyright" /down
-CALL "W.BAT" LIST @"%RAM%\SYSTEM\controlp\usr_acc\users.xml"
+CALL "W.BAT" LIST @"%RAM%\SYSTEM\controlp\usr_acc\usrs.xml"
 IF %ERRORLEVEL%==254 GOTO END
 IF NOT %ERRORLEVEL%==254 (
   SET USER_NAME=%WBAT%
@@ -20,11 +21,11 @@ IF %USER_NAME%==%AP_USERNAME% FOR /F "tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\
   CALL WBAT BOX "%%b" OK
   GOTO END
 )
-CALL "$reg" /remove -value "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%USER_NAME%"
+CALL "$reg" /remove -key "KEY_LOCAL_CONFIG\SYSTEM\acceser\conf" "[USERS]" "%USER_NAME%"
 GOTO END
 
 :END ---------------------------------------------------------------------------
 CLS
-DEL "%RAM%\SYSTEM\controlp\usr_acc\users.xml"
+IF EXIST "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml" DEL "%RAM%\SYSTEM\controlp\usr_acc\usrs.xml"
 SET USER_NAME=
 SET ERRORLEVEL=

@@ -14,7 +14,7 @@ GOTO MENU
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane moduly" [x]>"%RAM%\SYSTEM\controlp\list.xml"
-CALL "$reg" /list -lbl KEY_LOCAL_CONFIG\SYSTEM\apps\conf %RAM%\SYSTEM\controlp\app_man\$list.ap_ini
+CALL "$reg" /list -lbl "KEY_LOCAL_CONFIG\SYSTEM\apps\conf" "%RAM%\SYSTEM\controlp\app_man\$list.ap_ini"
 SORT "%RAM%\SYSTEM\controlp\app_man\$list.ap_ini" /O "%RAM%\SYSTEM\controlp\app_man\$list.ap_ini"
 
 :LOAD_LIST ---------------------------------------------------------------------
@@ -24,7 +24,7 @@ DEL "%RAM%\SYSTEM\controlp\app_man\$list.ap_ini"
 
 :MENU --------------------------------------------------------------------------
 CLS
-WBAT TEXT 80,1 (light white on light red) @"%SYSTEM_DIR%\langs\system\%AP_LANG%.xml":COPYRIGHT
+CALL "$copyright" /down
 WBAT LIST @"%RAM%\SYSTEM\controlp\app_man\list.xml"
 IF %ERRORLEVEL%==254 GOTO END
 IF NOT %ERRORLEVEL%==254 CALL "includes\run.bat" "%WBAT%"

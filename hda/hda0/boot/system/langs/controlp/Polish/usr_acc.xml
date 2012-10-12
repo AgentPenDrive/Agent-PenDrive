@@ -25,7 +25,7 @@ NOT_ENT=Hasˆa nie s¥ takie same lub nie zostaˆy wprowadzone!
 :: -----------------------------------------------------------------------------
 LOGED_IN=Nie mo¾na usun¥† u¾ytkownika aktualnie zalogowanego!
 :: -----------------------------------------------------------------------------
-:CHANGE_PASS "Zmieä hasˆo" [x]
+:CHANGE_PASS "Zmieä swoje hasˆo" [x]
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 Aktualne hasˆo:
 [$ PASS_OLD,P        ]
@@ -35,9 +35,9 @@ Podaj nowe hasˆo u¾ytkownika:
 Powt¢rz hasˆo:
 [$ PASS_NEW2,P       ]
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-[OK] [Anuluj]
+[<ÄÄ Wr¢†]              [Zmieä]
 :: -----------------------------------------------------------------------------
 VALID=Hasˆo zmienione!
 INVALID=Nieprawidˆowe hasˆo!
-NOT_EQU=Nowe hasˆa si© r¢¾ni¥!
+NOT_EQU=Hasˆo nie zostaˆo wprowadzone, lub si© r¢¾ni!
 :: -----------------------------------------------------------------------------

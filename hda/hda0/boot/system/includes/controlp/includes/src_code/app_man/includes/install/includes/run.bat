@@ -14,13 +14,13 @@ GOTO END
 
 :ERROR_APP_NOT_EXIST -----------------------------------------------------------
 CLS
-WBAT TEXT 80,1 (light white on light red) @"%SYSTEM_DIR%\langs\system\%AP_LANG%.xml":COPYRIGHT
+CALL "$copyright" /down
 WBAT BOX @"%SYSTEM_DIR%\langs\modules\%AP_LANG%.xml":ERROR_APP_NOT_EXIST
 GOTO END
 
 :ERROR_DIR_NOT_EXIST -----------------------------------------------------------
 CLS
-WBAT TEXT 80,1 (light white on light red) @"%SYSTEM_DIR%\langs\system\%AP_LANG%.xml":COPYRIGHT
+CALL "$copyright" /down
 WBAT" BOX @"%SYSTEM_DIR%\langs\modules\%AP_LANG%.xml":ERROR_DIR_NOT_EXIST
 GOTO END
 
