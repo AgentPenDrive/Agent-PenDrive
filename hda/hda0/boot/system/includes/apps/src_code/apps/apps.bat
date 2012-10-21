@@ -5,7 +5,7 @@ IF NOT EXIST "%RAM%\SYSTEM\apps" MD "%RAM%\SYSTEM\apps"
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane wtyczki" [x]>"%RAM%\SYSTEM\apps\list.xml"
-CALL "$reg" /list -lbl KEY_LOCAL_CONFIG\SYSTEM\apps\conf "%RAM%\SYSTEM\apps\$list.ap_ini"
+CALL "$reg" /list -lbl "KEY_LOCAL_CONFIG\SYSTEM\apps\conf" "%RAM%\SYSTEM\apps\$list.ap_ini"
 SORT "%RAM%\SYSTEM\apps\$list.ap_ini" /O "%RAM%\SYSTEM\apps\$list.ap_ini"
 
 :LOAD_LIST ---------------------------------------------------------------------

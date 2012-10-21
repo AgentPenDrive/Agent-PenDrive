@@ -5,7 +5,7 @@ IF NOT EXIST "%RAM%\SYSTEM\modules" MD "%RAM%\SYSTEM\modules"
 :CREATE_LIST -------------------------------------------------------------------
 CLS
 :: ECHO "Aktualnie zainstalowane moduly" [x]>"%RAM%\SYSTEM\modules\list.xml"
-CALL "$reg" /list -lbl KEY_LOCAL_CONFIG\SYSTEM\modules\conf %RAM%\SYSTEM\modules\$list.ap_ini
+CALL "$reg" /list -lbl "KEY_LOCAL_CONFIG\SYSTEM\modules\conf" "%RAM%\SYSTEM\modules\$list.ap_ini"
 IF NOT EXIST "%RAM%\SYSTEM\modules\$list.ap_ini" (
   FOR /F "eol=[ tokens=1,2 delims==" %%a in (%SYSTEM_DIR%\langs\modules\%AP_LANG%.xml) do IF %%a==NO_MOD WBAT BOX %%b OK
   GOTO END
