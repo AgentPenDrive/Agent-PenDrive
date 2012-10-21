@@ -36,6 +36,7 @@ IF %ERRORLEVEL%==1 GOTO ACCESER_SETUP
 IF %ERRORLEVEL%==2 (
   IF %WCB1%==1 CALL "$run" %AP_DIR%\bin\mods\fs_man.ap_app /setup -install
   IF %WCB2%==1 CALL "$run" %AP_DIR%\bin\mods\security.ap_app /setup -install
+  IF %WCB3%==1 CALL "$run" %AP_DIR%\bin\mods\antivirus.ap_app /setup -install
   GOTO END
 )
 IF %ERRORLEVEL%==100 GOTO ACCESER_SETUP

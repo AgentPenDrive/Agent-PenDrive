@@ -1,4 +1,0 @@
-[PARTITIONS]
-hda=hda0
-[BOOT]
-PRIMARY=hda0\boot\FUSION_1.2.0089\boot.bat
