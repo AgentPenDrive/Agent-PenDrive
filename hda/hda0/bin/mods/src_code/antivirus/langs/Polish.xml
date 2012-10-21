@@ -6,8 +6,8 @@ NO_PATHS="Nie dodano ¾adnych katalog¢w."
 NAME_EXIST="Podana nazwa ju¾ istnieje!"
 PATH_EXIST="Podana ˜cie¾ka ju¾ istnieje!"
 EDIT=Edytuj=Usuä=Anuluj
-SUCCES="Antivirus zostaˆ pomyslnie zainstalowany!"
-FAIL="Podczas instalacji moduˆu Antivirus, wyst¥piˆ bˆ¥d. Instalacja nieudana!"
+SUCCES="AntyWirus zostaˆ pomy˜lnie zainstalowany!"
+FAIL="Podczas instalacji moduˆu AntyWirus, wyst¥piˆ bˆ¥d. Instalacja nieudana!"
 :: -----------------------------------------------------------------------------
 :MENU "AntyWirus" [x]
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
