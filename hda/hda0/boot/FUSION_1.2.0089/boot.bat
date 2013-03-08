@@ -72,27 +72,27 @@ GOTO ERROR_BOOT_0F-0066-003
 
 :ERROR_BOOT_0B-0006-001
 CLS
-WBAT BOX "Error! etc\conf\fusion\boot.ap_conf is missed! System cannot contine! Error code: ERROR_BOOT_0B-0006-001" OK
+WBAT BOX "Error! etc\conf\fusion\boot.ap_conf is missed! System cannot continue! Error code: ERROR_BOOT_0B-0006-001" OK
 GOTO END
 
 :ERROR_BOOT_0B-0007-002
 CLS
-WBAT BOX "Error! etc\conf\ufe\kernel.ap_conf is missed! System cannot contine! Error code: ERROR_BOOT_0B-0007-002" OK
+WBAT BOX "Error! etc\conf\ufe\kernel.ap_conf is missed! System cannot continue! Error code: ERROR_BOOT_0B-0007-002" OK
 GOTO END
 
 :ERROR_BOOT_0E-0049-007
 CLS
-WBAT BOX "Error! boot\fusion\includes\var\var.bat is missed! System cannot contine! Error code: ERROR_BOOT_0E-0049-007" OK
+WBAT BOX "Error! boot\fusion\includes\var\var.bat is missed! System cannot continue! Error code: ERROR_BOOT_0E-0049-007" OK
 GOTO END
 
 :ERROR_BOOT_0E-0053-011
 CLS
-WBAT BOX "Error! boot\fusion\includes\env\env.bat is missed! System cannot contine! Error code: ERROR_BOOT_0E-0053-011" OK
+WBAT BOX "Error! boot\fusion\includes\env\env.bat is missed! System cannot continue! Error code: ERROR_BOOT_0E-0053-011" OK
 GOTO END
 
 :ERROR_BOOT_0E-0055-015
 CLS
-WBAT BOX "Error! boot\fusion\includes\lib\lib.bat is missed! System cannot contine! Error code: ERROR_BOOT_0E-0055-015" OK
+WBAT BOX "Error! boot\fusion\includes\lib\lib.bat is missed! System cannot continue! Error code: ERROR_BOOT_0E-0055-015" OK
 GOTO END
 
 :ERROR_BOOT_0F-0061-004
