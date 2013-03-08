@@ -11,7 +11,7 @@ kliknij "Utw¢rz u¾ytkownika".
 [<ÄÄ Wr¢†]   1/3    [Dalej ÄÄ>]
 :: -----------------------------------------------------------------------------
 :USRS_ADD "Wst©pna konfiguracja" [x]
-    Podaj nazw© u¾ytkownika,
+    Podaj nazw© u¾ytkownika
     kt¢rego b©dziesz u¾ywa†
          do logowania:
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
@@ -24,7 +24,7 @@ Powt¢rz: [$ PASS2,P       ]
 [<ÄÄ Wr¢†]   1/3        [Dodaj]
 :: -----------------------------------------------------------------------------
 USR_ADDED="U¾ytkownik zostaˆ utworzony!"
-USR_NOT_ADDED="Nie mo¾na byˆo utworzy† u¾ytkownika, poniewa¾ wyst¥piˆ inny bˆ¥d!"
+USR_NOT_ADDED="Nie mo¾na byˆo utworzy† u¾ytkownika, poniewa¾ wyst¥piˆ wew. bˆ¥d!"
 USR_EXIST="U¾ytkownik o tej nazwie ju¾ istnieje."
 PASS_NOT_EQU="Hasˆa si© nie s¥ takie same."
 PASS_NOT_ENT="Nie podano hasˆa."
