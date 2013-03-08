@@ -26,7 +26,7 @@ IF NOT EXIST "cda.vme_cdd" GOTO HDD
 CLS
 IF EXIST "cda\$mbr.vme_mbr" FOR /F "eol=[ tokens=1,2 delims==" %%a in (cda\$mbr.vme_mbr) do IF %%a==PRIMARY CALL "cda\%%b"
 IF NOT EXIST "cda\$mbr.vme_mbr" (
-  ECHO Notice! This CD doesn't support MBR record, or isn't correct!
+  ECHO Error! This CD does not support MBR record, or isn't correct!
   ECHO Cannot be booted!
   CALL "includes\cmds\Timeout\timeout" 5
   GOTO HDD
