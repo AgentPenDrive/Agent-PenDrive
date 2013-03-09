@@ -3,7 +3,7 @@ PATH ;
 
 :: PATH ------------------------------------------------------------------------
 
-FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\conf\ufe\kernel.ap_conf) do (
+FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot\ufe.ap_conf) do (
   IF %%a==ENV (
     IF %%b==DIR (
       IF %%c==LOCAL CALL "%BOOT_DIR%\includes\env\includes\set_path.bat" /local %%d

@@ -1,6 +1,6 @@
 :: LOCAL -----------------------------------------------------------------------
 
-FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\conf\ufe\kernel.ap_conf) do IF %%a==VAR (
+FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==VAR (
   IF %%b==LOCAL SET %%c=%CD%\%%d
 )
 
@@ -8,7 +8,7 @@ FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\conf\ufe\kernel.ap_conf) do I
 
 :: GLOBAL ----------------------------------------------------------------------
 
-FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\conf\ufe\kernel.ap_conf) do IF %%a==VAR (
+FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==VAR (
   IF %%b==GLOBAL SET %%c=%%d
 )
 
