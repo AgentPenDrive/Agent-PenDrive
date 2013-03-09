@@ -1,0 +1,26 @@
+:: -----------------------------------------------------------------------------
+APP_NAME="AntyWirus"
+NO_PATH="Najpierw musisz wybra† folder zanim b©dziesz m¢gˆ go doda†."
+NO_NAME="Najpierw musisz wprowadzi† nazw© zanim b©dziesz m¢gˆ doda† nowy katalog."
+NO_PATHS="Nie dodano ¾adnych katalog¢w."
+NAME_EXIST="Podana nazwa ju¾ istnieje!"
+PATH_EXIST="Podana ˜cie¾ka ju¾ istnieje!"
+EDIT=Edytuj=Usuä=Anuluj
+SUCCES="AntyWirus zostaˆ pomy˜lnie zainstalowany!"
+FAIL="Podczas instalacji moduˆu AntyWirus, wyst¥piˆ bˆ¥d. Instalacja nieudana!"
+:: -----------------------------------------------------------------------------
+:MENU "AntyWirus" [x]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Szybkie skanowanie           ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[<-- Wr¢†]
+:: -----------------------------------------------------------------------------
+
+:: -----------------------------------------------------------------------------
+:RAPORT "AntyWirus - Raport" [x]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    Skanowanie zakoäczone,
+czy chcesz wy˜wietli† raport?
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[  Tak  ]             [  Nie  ]
+:: -----------------------------------------------------------------------------

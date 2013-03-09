@@ -1,0 +1,26 @@
+:COPYRIGHT
+ Copyright (R) Agent PemDrive Staff 2010 - 2012                                 
+:: -----------------------------------------------------------------------------
+:MENU "Agent PenDrive v1.6" [x]
+[Panel U¾ytkownika            ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Moduˆy                       ]
+[Pobieralnia                  ]
+[Aplikacje                    ]
+[Panel Sterowania             ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Pomoc] [Uruchom] [Wyjscie] [X]
+:: -----------------------------------------------------------------------------
+:USER_MENU "Panel U¾ytkownika" [x]
+ Zalogowany jako: %AP_USERNAME%
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Zamknij program] [Wyloguj si©] [Anuluj]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+:: -----------------------------------------------------------------------------
+:USER_MENU_ADMIN "Panel U¾ytkownika - Admin" [x]
+Zalogowany jako: %AP_USERNAME%
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Zamknij program] [Wyloguj si©] [Panel zarz¥dzadzania] [Anuluj]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+:: Komunikaty -------------------------------------------------------------------
+BETA=Przepraszamy! Ta opcja jest niedostepna w wersji beta.
