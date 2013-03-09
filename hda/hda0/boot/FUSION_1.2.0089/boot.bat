@@ -98,12 +98,12 @@ GOTO END
 
 :ERROR_BOOT_0F-0061-004
 CLS
-WBAT BOX "An error has accured while loading or trying to load kernel! Error code: ERROR_BOOT_0F-0061-004" OK
+WBAT BOX "An error has occured while loading or trying to load kernel! Error code: ERROR_BOOT_0F-0061-004" OK
 GOTO END
 
 :ERROR_BOOT_0F-0066-003
 CLS
-WBAT BOX "An error has accured while trying to run kernel! Error code: ERROR_BOOT_0F-0066-003" OK
+WBAT BOX "An error has occured while trying to execute kernel! Error code: ERROR_BOOT_0F-0066-003" OK
 GOTO END
 
 :: -----------------------------------------------------------------------------
