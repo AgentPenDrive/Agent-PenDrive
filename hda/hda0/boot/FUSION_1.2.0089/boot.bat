@@ -1,9 +1,10 @@
 :PROPER ------------------------------------------------------------------------
 CD "hda\hda0"
+SET AP_LANG=Polish
 SET AP_DIR=%VME_DIR%\hda\hda0
 
 :CHECK -------------------------------------------------------------------------
-IF NOT EXIST "etc\boot\fusion.ap_conf" GOTO ERROR_FUSION_0B-0006-001
+IF NOT EXIST "etc\boot\fusion.ap_confA" GOTO ERROR_FUSION_0B-0006-001
 IF NOT EXIST "etc\boot\ufe.ap_conf" GOTO ERROR_FUSION_0B-0007-002
 
 :BOOT --------------------------------------------------------------------------
@@ -74,44 +75,58 @@ GOTO ERROR_FUSION_0F-0066-003
 
 :ERROR_FUSION_0B-0006-001
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "Error! etc\boot\fusion.ap_conf is missed! System cannot continue! Error code: ERROR_FUSION_0B-0006-001" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO Error! etc\boot\fusion.ap_conf is missed! System cannot continue! Error code: ERROR_FUSION_0B-0006-001 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0006-001 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :ERROR_FUSION_0B-0007-002
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "Error! etc\boot\ufe.ap_conf is missed! System cannot continue! Error code: ERROR_FUSION_0B-0007-002" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO Error! etc\boot\ufe.ap_conf is missed! System cannot continue! Error code: ERROR_FUSION_0B-0007-002 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0007-002 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :ERROR_FUSION_0E-0049-007
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "Error! boot\fusion\includes\var\var.bat is missed! System cannot continue! Error code: ERROR_FUSION_0E-0049-007" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO Error! boot\fusion\includes\var\var.bat is missed! System cannot continue! Error code: ERROR_FUSION_0E-0049-007 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0049-007 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :ERROR_FUSION_0E-0053-011
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "Error! boot\fusion\includes\env\env.bat is missed! System cannot continue! Error code: ERROR_FUSION_0E-0053-011" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO Error! boot\fusion\includes\env\env.bat is missed! System cannot continue! Error code: ERROR_FUSION_0E-0053-011 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0053-011 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :ERROR_FUSION_0E-0055-015
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "Error! boot\fusion\includes\lib\lib.bat is missed! System cannot continue! Error code: ERROR_FUSION_0E-0055-015" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO Error! boot\fusion\includes\lib\lib.bat is missed! System cannot continue! Error code: ERROR_FUSION_0E-0055-015 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0055-015 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :ERROR_FUSION_0F-0061-004
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "An error has occured while loading or trying to load kernel! Error code: ERROR_FUSION_0F-0061-004" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO An error has occured while loading or trying to load kernel! Error code: ERROR_FUSION_0F-0061-004 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0061-004 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :ERROR_FUSION_0F-0066-003
 CLS
-IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX "An error has occured while trying to execute kernel! Error code: ERROR_FUSION_0F-0066-003" OK
-IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO An error has occured while trying to execute kernel! Error code: ERROR_FUSION_0F-0066-003 & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0066-003 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
 GOTO END
 
 :: -----------------------------------------------------------------------------
