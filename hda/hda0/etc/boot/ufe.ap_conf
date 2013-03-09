@@ -20,12 +20,12 @@ VAR=LOCAL=ENV=sys\env
 VAR=LOCAL=FTP=var\ftp
 VAR=LOCAL=FUSION=boot\fusion
 VAR=LOCAL=LIB=lib
-VAR=LOCAL=MODS=bin\mods
+VAR=LOCAL=MODS=lib\modules
 VAR=LOCAL=SYS=sys
-VAR=LOCAL=SYSTEM_DIR=boot\system
-VAR=LOCAL=REG_DIR=etc\reg
+VAR=LOCAL=SYSTEM_DIR=sys\system
+VAR=LOCAL=REG_DIR=etc\modules\reg
 VAR=LOCAL=VAR=var
-VAR=LOCAL=VARS=sys\var
+VAR=LOCAL=CONST=var\const
 
 [ENVIRONMENT]
 ENV=DIR=LOCAL=sys\api
