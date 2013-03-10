@@ -15,7 +15,23 @@ SET RAM=%CD%\RAM
 :: IF EXIST "hda" RMDIR /Q /S "hda"
 IF EXIST "RAM" RMDIR /Q /S "RAM" & MD "RAM"
 
-:CD ----------------------------------------------------------------------------
+:BOOT --------------------------------------------------------------------------
+CLS
+FOR /F "tokens=1,2 delims==" %%a in (%VME_DIR%\CMOS.ap_cmos) do (
+  IF %%a==BOOT (
+    IF %%b==PRIMARY (
+      IF EXIST "%VME_DIR%\%%c\$mbr.ap_mbr" (
+        FOR /F "eol=[ tokens=1,2 delims==" %%a in (%VME_DIR%\%%c\$mbr.ap_mbr) do IF %%a==BOOTLOADER CALL "%%b" & GOTO END
+      )
+    )
+    IF %%b==SLAVE (
+      IF EXIST "%VME_DIR%\%%c\$mbr.ap_mbr" (
+        FOR /F "eol=[ tokens=1,2 delims==" %%a in (hda\$mbr.vme_mbr) do IF %%a==PRIMARY CALL "hda\%%b" & GOTO END
+      )
+    )
+  )
+)
+:CDD ---------------------------------------------------------------------------
 
 :: CHECK_CD_EXISTING -----------------------------------------------------------
 CLS
