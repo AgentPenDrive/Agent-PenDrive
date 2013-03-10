@@ -8,8 +8,7 @@ CLS
 :: BOOT_HDD --------------------------------------------------------------------
 CLS
 IF NOT EXIST "%1\$mbr.vme_mbr" GOTO ERROR_VME-BOOT_HDD_0A-00010-001
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (%1\$mbr.vme_mbr) do IF %%a==BOOTLOADER CALL "%1\%%b"
-PAUSE
+FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (%1\$mbr.vme_mbr) do IF %%a==BOOTLOADER CALL "%1\%%b\%%c" %1 %%b %%c
 GOTO END
 
 :ERROR_VME-BOOT_HDD_0A-0006-001 ------------------------------------------------
