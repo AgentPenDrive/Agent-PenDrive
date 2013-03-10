@@ -3,5 +3,5 @@ HDD=hda
 [CDD]
 CDD=cda
 [BOOT]
-BOOT=MASTER=hda
-BOOT=SLAVE=cda
+BOOT=MASTER=HDD=hda
+BOOT=SLAVE=CDD=cda
