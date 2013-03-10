@@ -8,16 +8,16 @@ CLS
 :ENVIRONMENT -------------------------------------------------------------------
 CLS
 SET VME_DIR=%CD%
-
-:CLEAR_RAM ---------------------------------------------------------------------
-CLS
 SET RAM=%CD%\RAM
-:: IF EXIST "hda" RMDIR /Q /S "hda"
+
+:POST --------------------------------------------------------------------------
+CLS
 IF EXIST "RAM" RMDIR /Q /S "RAM" & MD "RAM"
+FOR /F "tokens=1,2 delims==" %%a in (CMOS.vme_cmos) do IF %%a==LANGUAGE SET VME_LANG=%%b
 
 :BOOT --------------------------------------------------------------------------
 CLS
-FOR /F "tokens=1,2,3,4 delims==" %%a in (%VME_DIR%\CMOS.vme_cmos) do IF %%a==BOOT (
+FOR /F "tokens=1,2,3,4 delims==" %%a in (CMOS.vme_cmos) do IF %%a==BOOT (
   IF %%b==MASTER (
     IF %%c==HDD (
       CALL "includes\$procedures\$boot_hdd.bat" %%d
