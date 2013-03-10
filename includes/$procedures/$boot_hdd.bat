@@ -8,7 +8,11 @@ CLS
 :: BOOT_HDD --------------------------------------------------------------------
 CLS
 IF NOT EXIST "%1\$mbr.vme_mbr" GOTO ERROR_VME-BOOT_HDD_0A-00010-001
-FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (%1\$mbr.vme_mbr) do IF %%a==BOOTLOADER CALL "%1\%%b\%%c" %1 %%b %%c
+FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (%1\$mbr.vme_mbr) do IF %%a==BOOTLOADER (
+  IF NOT EXIST "%1\%%b\%%c" GOTO ERROR_VME-BOOT_HDD_0A-0012-001
+  CALL "%1\%%b\%%c" %1 %%b %%c
+)
+SET ERROR=0
 GOTO END
 
 :ERROR_VME-BOOT_HDD_0A-0006-001 ------------------------------------------------
@@ -17,6 +21,7 @@ FOR /F "tokens=1,2 delims==" %%a in (includes\langs\%VME_LANG%.vme_lng) do IF %%
   IF EXIST "includes\cmds\wbat250\WBAT.COM" CALL "includes\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
+SET ERROR=1
 GOTO END
 
 :ERROR_VME-BOOT_HDD_0A-0010-001 ------------------------------------------------
@@ -25,6 +30,16 @@ FOR /F "tokens=1,2 delims==" %%a in (includes\langs\%VME_LANG%.vme_lng) do IF %%
   IF EXIST "includes\cmds\wbat250\WBAT.COM" CALL "includes\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
+SET ERROR=1
+GOTO END
+
+:ERROR_VME-BOOT_HDD_0A-0012-001 ------------------------------------------------
+CLS
+FOR /F "tokens=1,2 delims==" %%a in (includes\langs\%VME_LANG%.vme_lng) do IF %%a==ERROR_VME-BOOT_HDD_0A-0012-001 (
+  IF EXIST "includes\cmds\wbat250\WBAT.COM" CALL "includes\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
+SET ERROR=1
 GOTO END
 
 :END ---------------------------------------------------------------------------

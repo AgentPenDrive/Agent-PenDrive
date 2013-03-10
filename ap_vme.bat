@@ -22,14 +22,24 @@ FOR /F "tokens=1,2,3,4 delims==" %%a in (CMOS.vme_cmos) do IF %%a==BOOT (
   IF %%b==MASTER (
     IF %%c==HDD (
       CALL "includes\$procedures\$boot_hdd.bat" %%d
+      GOTO END
     )
     IF %%c==CDD (
       CALL "includes\$procedures\$boot_cdd.bat" %%d
+      GOTO END
+    )
+  )
+  IF %%b==SLAVE (
+    IF %%c==HDD (
+      CALL "includes\$procedures\$boot_hdd.bat" %%d
+      GOTO END
+    )
+    IF %%c==CDD (
+      CALL "includes\$procedures\$boot_cdd.bat" %%d
+      GOTO END
     )
   )
 )
-ECHO ===========================================================================
-PAUSE
 
 
 :: ERRORS ----------------------------------------------------------------------
