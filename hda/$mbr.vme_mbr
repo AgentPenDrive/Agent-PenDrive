@@ -1,4 +1,4 @@
-[PARTITIONS]
-hda=hda0
-[BOOT]
-PRIMARY=hda0\boot\FUSION_1.2.0089\boot.bat
+[PARTITION_TABLE]
+1=hd0=Primary=Active=hd0\boot\FUSION_1.2.0089\boot.bat
+[BOOTSTRAP]
+BOOTLOADER=hd0\boot\FUSION_1.2.0089\boot.bat
