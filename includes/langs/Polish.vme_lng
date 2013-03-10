@@ -1,2 +1,3 @@
 ERROR_VME_0B-0015-001="Bˆ¥d! Wyst¥piˆ problem z odczytem pami©ci CMOS!"
-ERROR_VME-BOOT_HDD_0A-0008-001="Bˆ¥d! Nie mo¾na uruchomi† dysku poniewa¾ nie zawiera on MBR!"
+ERROR_VME-BOOT_HDD_0A-0006-001="Bˆ¥d! Wskazany dysk jest nie osi¥galny! Prosimy przeprowadzi† konfiguracj© jeszcze raz."
+ERROR_VME-BOOT_HDD_0A-0010-001="Bˆ¥d! Nie mo¾na uruchomi† dysku poniewa¾ nie zawiera on MBR!"
