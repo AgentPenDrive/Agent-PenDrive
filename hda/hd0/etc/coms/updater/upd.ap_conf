@@ -1,0 +1,8 @@
+[DATABASE_CONFIG]
+HOST=sql2.freesqldatabase.com
+USER=sql24660
+PASSWD=pkN5!aT2%
+DATABASE=sql24660
+[UPDATE_CONFIG]
+SRC_FILE=etc\coms\updater\upd.ap_sql
+# mysql -h sql2.freesqldatabase.com -u sql24660 -pkN5!aT2% sql24660<"ap_vme.txt"
