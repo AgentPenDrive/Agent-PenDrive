@@ -4,7 +4,6 @@ UFE_VER=UFE_2.1.0169
 CONSOLE=console.bat
 KERNEL=krnl16.bat
 KERNEL_LOADER=kernel_loader.bat
-KERNEL_LOAD_TYPE=2
 SYSTEM=sys\system\sys16.ap_app -system
 SYSTEM_LOADER=sys\system\sys16.ap_app -system_loader
 
