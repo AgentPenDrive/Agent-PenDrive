@@ -63,6 +63,7 @@ IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0062-015
 CALL "%BOOT_DIR%\includes\lib\lib.bat"
 
 :KERNEL ------------------------------------------------------------------------
+ECHO KERNEL_LOAD
 PAUSE
 :: LOAD_KERNEL -----------------------------------------------------------------
 CLS
