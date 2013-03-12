@@ -1,7 +1,7 @@
 :PROPER ------------------------------------------------------------------------
-CD "hda\hda0"
-SET AP_LANG=Polish
-SET AP_DIR=%VME_DIR%\hda\hda0
+CD "%VME_DIR%\%1\%2"
+SET AP_DIR=%VME_DIR%\%1\%2
+FOR /F "tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==DEF_LANG SET AP_LANG=%%b
 
 :CHECK -------------------------------------------------------------------------
 IF NOT EXIST "etc\boot\fusion.ap_conf" GOTO ERROR_FUSION_0B-0007-001
@@ -59,27 +59,32 @@ IF NOT EXIST "%BOOT_DIR%\includes\env\env.bat" GOTO ERROR_FUSION_0E-0058-011
 CALL "%BOOT_DIR%\includes\env\env.bat"
 
 :: LIBRARIES ---------------------------------------------------------
-GOTO ERROR_FUSION_0E-0055-015
-IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0063-015
+IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0062-015
 CALL "%BOOT_DIR%\includes\lib\lib.bat"
 
 :KERNEL ------------------------------------------------------------------------
+PATH
+
+ECHO KERNEL_LOAD
 PAUSE
 :: LOAD_KERNEL -----------------------------------------------------------------
 CLS
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER CALL "%KERNEL_DIR%\%%b"
-IF NOT %ERROR%==0 GOTO ERROR_FUSION_0F-0071-004
+ECHO AFTER_KERNEL_LOADING
+PAUSE
+
+IF NOT %ERROR%==0 GOTO ERROR_FUSION_0F-0070-004
 
 :: START_KERNEL ----------------------------------------------------------------
 CLS
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL "%KERNEL_DIR%\%%b"
-GOTO ERROR_FUSION_0F-0076-003
+GOTO ERROR_FUSION_0F-0075-003
 
 :: ERRORS ----------------------------------------------------------------------
 
 :ERROR_FUSION_0B-0007-001
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0006-001 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0007-001 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
@@ -87,7 +92,7 @@ GOTO END
 
 :ERROR_FUSION_0B-0008-002
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0007-002 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0008-002 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
@@ -95,7 +100,7 @@ GOTO END
 
 :ERROR_FUSION_0E-0050-007
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0049-007 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0050-007 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
@@ -103,7 +108,7 @@ GOTO END
 
 :ERROR_FUSION_0E-0054-011
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0053-011 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0054-011 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
@@ -111,31 +116,31 @@ GOTO END
 
 :ERROR_FUSION_0E-0058-011
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0053-011 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0058-011 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0E-0063-015
+:ERROR_FUSION_0E-0062-015
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0055-015 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0062-015 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0F-0071-004
+:ERROR_FUSION_0F-0070-004
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0061-004 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0070-004 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0F-0076-003
+:ERROR_FUSION_0F-0075-003
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0066-003 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0070-003 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )

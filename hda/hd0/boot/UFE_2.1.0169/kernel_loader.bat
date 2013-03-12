@@ -1,26 +1,17 @@
-:PROPER ------------------------------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (%AP_DIR%\hd0\A\etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOAD_TYPE (
-  IF %%b==1 GOTO TYPE_1_LOADING
-  IF %%b==2 GOTO TYPE_2_LOADING
-)
-
-:: TYPE_1 ----------------------------------------------------------------------
-
-:TYPE_1_LOADING
+:ARCHITECTURE_SELECT -----------------------------------------------------------
 CLS
+IF "%PROCESSOR_ARCHITECTURE%"=="x86" GOTO X86_BIT_SYSTEM
+IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" GOTO X64_BIT_SYSTEM
+GOTO ARCHITECTURE_SELECT
 
-:: TYPE_2 ----------------------------------------------------------------------
-
-:TYPE_2_LOADING
+:X86_BIT_SYSTEM ----------------------------------------------------------------
 CLS
-COLOR CF
-
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\ufe\Polish.xml:LOADING_0
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\ufe\Polish.xml:LOADING_1
-CALL "$coms" /load_coms
-IF NOT EXIST "%RAM%\KERNEL\com" GOTO ERROR_CANT_LOAD_COMS
+CALL "$mods" /load_mods
+IF NOT EXIST "%RAM%\KERNEL\com" GOTO ERROR_CANT_LOAD_MODS
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\ufe\Polish.xml:LOADING_2
 CALL "hal.bat"
@@ -39,8 +30,56 @@ CALL "$env" -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\lib" GOTO ERROR_CANT_LOAD_ENVS
 :: -----------------------------------------------------------------------------
 COLOR 07
-GOTO OK
-:: --------------------------------------------- 
+GOTO OK 
+
+:X64_BIT_SYSTEM ----------------------------------------------------------------
+CLS
+
+:: Loading_Modules...
+ECHO.
+ECHOC 0 15 Loading Modules...
+CALL "$coms" /load_coms
+
+:: IF EXIST "%RAM%\KERNEL\mods" ECHOC 0 10 OK
+IF NOT EXIST "%RAM%\KERNEL\mods" (
+  ECHOC 0 12 FAIL
+  GOTO ERROR_CANT_LOAD_MODS
+)
+
+:: Loading_Variables...
+ECHO.
+ECHOC 0 15 Loading Variables...
+CALL "$var" -load_defaults
+
+:: IF EXIST "%RAM%\KERNEL\var" ECHOC 0 10 OK
+IF NOT EXIST "%RAM%\KERNEL\var" (
+  ECHOC 0 12 FAIL
+  GOTO ERROR_CANT_LOAD_VARS
+)
+
+:: Loading_Libraries...
+ECHO. 
+ECHOC 0 15 Loading Libraries...
+CALL "$lib" -load_defaults
+
+:: IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
+IF NOT EXIST "%RAM%\KERNEL\lib" (
+  ECHOC 0 12 FAIL
+  GOTO ERROR_CANT_LOAD_LIBS
+)
+
+:: Loading_Environment_Files...
+ECHO.
+ECHOC 0 15 Loading Environment Files...
+::ECHOC 0 14 Notice! Environment Files are temporary closed!
+ECHOC 0 15 Loading Environment Files...
+CALL "$env" -load_defaults
+
+:: IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
+IF NOT EXIST "%RAM%\KERNEL\lib" (
+  ECHOC 0 12 FAIL
+  GOTO ERROR_CANT_LOAD_ENVS
+)
 
 :: ERRORS ----------------------------------------------------------------------
 
