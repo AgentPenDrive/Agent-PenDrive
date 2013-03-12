@@ -1,5 +1,5 @@
 :PROPER ------------------------------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (%AP_DIR%\hd0\A\etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOAD_TYPE (
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOAD_TYPE (
   IF %%b==1 GOTO TYPE_1_LOADING
   IF %%b==2 GOTO TYPE_2_LOADING
 )
