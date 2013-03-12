@@ -10,8 +10,8 @@ CLS
 CALL "W.BAT" TEXT 18,20 @shared\langs\ufe\Polish.xml:LOADING_0
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\ufe\Polish.xml:LOADING_1
-CALL "$coms" /load_coms
-IF NOT EXIST "%RAM%\KERNEL\com" GOTO ERROR_CANT_LOAD_COMS
+CALL "$mods" /load_mods
+IF NOT EXIST "%RAM%\KERNEL\com" GOTO ERROR_CANT_LOAD_MODS
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\ufe\Polish.xml:LOADING_2
 CALL "hal.bat"
@@ -35,15 +35,15 @@ GOTO OK
 :X64_BIT_SYSTEM ----------------------------------------------------------------
 CLS
 
-:: Loading_Components...
+:: Loading_Modules...
 ECHO.
-ECHOC 0 15 Loading Components...
+ECHOC 0 15 Loading Modules...
 CALL "$coms" /load_coms
 
-IF EXIST "%RAM%\KERNEL\comps" ECHOC 0 10 OK
-IF NOT EXIST "%RAM%\KERNEL\comps" (
+:: IF EXIST "%RAM%\KERNEL\mods" ECHOC 0 10 OK
+IF NOT EXIST "%RAM%\KERNEL\mods" (
   ECHOC 0 12 FAIL
-  GOTO ERROR_CANT_LOAD_COMPS
+  GOTO ERROR_CANT_LOAD_MODS
 )
 
 :: Loading_Variables...
@@ -51,7 +51,7 @@ ECHO.
 ECHOC 0 15 Loading Variables...
 CALL "$var" -load_defaults
 
-IF EXIST "%RAM%\KERNEL\var" ECHOC 0 10 OK
+:: IF EXIST "%RAM%\KERNEL\var" ECHOC 0 10 OK
 IF NOT EXIST "%RAM%\KERNEL\var" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_VARS
@@ -62,7 +62,7 @@ ECHO.
 ECHOC 0 15 Loading Libraries...
 CALL "$lib" -load_defaults
 
-IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
+:: IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
 IF NOT EXIST "%RAM%\KERNEL\lib" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_LIBS
@@ -75,7 +75,7 @@ ECHOC 0 15 Loading Environment Files...
 ECHOC 0 15 Loading Environment Files...
 CALL "$env" -load_defaults
 
-IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
+:: IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
 IF NOT EXIST "%RAM%\KERNEL\lib" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_ENVS
