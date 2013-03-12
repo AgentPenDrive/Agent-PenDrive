@@ -26,7 +26,7 @@ SET NT_VER=NT_%NT_VER%
 :: CHECK_EXISTING_DRIVER_AND_LOAD ----------------------------------------------
 IF EXIST "%SYS%\drivers\hal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" CALL "$lib" /sys -load "%SYS%\drivers\hal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys"
 IF NOT EXIST "%SYS%\drivers\hal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" (
-  WBAT Agent PenDrive Can't find proper HAL driver. Try to use Windows Compatibility Troubleshooter to fix this problem, or download seperate HAL driver.
+  WBAT Agent PenDrive Cannot find proper HAL driver. Try to use Windows Compatibility Troubleshooter to fix this problem, or download seperate HAL driver.
   PAUSE
   SET ERROR=1
 )
