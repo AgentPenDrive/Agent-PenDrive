@@ -25,7 +25,7 @@ VAR=LOCAL=SYS=sys
 VAR=LOCAL=SYSTEM_DIR=sys\system
 VAR=LOCAL=REG_DIR=etc\modules\reg
 VAR=LOCAL=VAR=var
-VAR=LOCAL=CONST=var\const
+VAR=LOCAL=CONSTS=var\const
 
 [ENVIRONMENT]
 ENV=DIR=LOCAL=sys\api
@@ -33,13 +33,12 @@ ENV=DIR=LOCAL=sys\api\classes
 ENV=DIR=LOCAL=sys\api\procedures
 ENV=DIR=LOCAL=sys\api\functions
 ENV=DIR=LOCAL=sys\api\labels
-ENV=DIR=LOCAL=sys\api\cmds\%UFE_VER%\x86\Choice
-ENV=DIR=LOCAL=sys\api\cmds\%UFE_VER%\x86\inifile
-ENV=DIR=LOCAL=sys\api\cmds\%UFE_VER%\x86\Timeout
-ENV=DIR=LOCAL=sys\api\cmds\%UFE_VER%\x86\Tscmd
-ENV=DIR=LOCAL=sys\api\cmds\%UFE_VER%\x86\wbat250
-ENV=DIR=LOCAL=sys\api\cmds\%UFE_VER%\x86\WinRAR
-ENV=DIR=LOCAL=sys\bin\bash
+ENV=DIR=LOCAL=bin\cmds\%UFE_VER%\x86\Choice
+ENV=DIR=LOCAL=bin\cmds\%UFE_VER%\x86\inifile
+ENV=DIR=LOCAL=bin\cmds\%UFE_VER%\x86\Timeout
+ENV=DIR=LOCAL=bin\cmds\%UFE_VER%\x86\Tscmd
+ENV=DIR=LOCAL=bin\cmds\%UFE_VER%\x86\wbat250
+ENV=DIR=LOCAL=bin\cmds\%UFE_VER%\x86\WinRAR
 
 [LIBRARIES]
 LIB=SYS=LOCAL=lib\sys\hal.ap_sys
