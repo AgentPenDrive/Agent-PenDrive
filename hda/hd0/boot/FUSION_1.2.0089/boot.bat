@@ -63,11 +63,16 @@ IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0062-015
 CALL "%BOOT_DIR%\includes\lib\lib.bat"
 
 :KERNEL ------------------------------------------------------------------------
+PATH
+
 ECHO KERNEL_LOAD
 PAUSE
 :: LOAD_KERNEL -----------------------------------------------------------------
 CLS
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER CALL "%KERNEL_DIR%\%%b"
+ECHO AFTER_KERNEL_LOADING
+PAUSE
+
 IF NOT %ERROR%==0 GOTO ERROR_FUSION_0F-0070-004
 
 :: START_KERNEL ----------------------------------------------------------------
