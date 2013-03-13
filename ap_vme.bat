@@ -12,7 +12,7 @@ SET RAM=%CD%\RAM
 
 :POST --------------------------------------------------------------------------
 CLS
-IF NOT EXIST "CMOS.vme_cmos" GOTO ERROR_VME_0B-0015-001
+IF NOT EXIST "CMOS.vme_cmos" GOTO ERROR_VME_0B-0012-001
 IF EXIST "RAM" RMDIR /Q /S "RAM" & MD "RAM"
 FOR /F "tokens=1,2 delims==" %%a in (CMOS.vme_cmos) do IF %%a==LANGUAGE SET VME_LANG=%%b
 
@@ -44,11 +44,14 @@ FOR /F "tokens=1,2,3,4 delims==" %%a in (CMOS.vme_cmos) do IF %%a==BOOT (
 
 :: ERRORS ----------------------------------------------------------------------
 
-:ERROR_VME_0B-0015-001
+:ERROR_VME_0B-0012-001
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (includes\langs\English.vme_lng) do IF %%a==ERROR_VME_0B-0015-001 (
-  IF EXIST "includes\cmds\wbat250\WBAT.COM" CALL "includes\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+FOR /F "tokens=1,2 delims==" %%a in (includes\langs\English.vme_lng) do IF %%a==ERROR_VME_0B-0012-001 (
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "includes\cmds\wbat250\WBAT.COM" CALL "includes\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
