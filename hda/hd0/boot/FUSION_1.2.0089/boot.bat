@@ -80,40 +80,55 @@ GOTO ERROR_FUSION_0F-0076-003
 :ERROR_FUSION_0B-0007-001
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0007-001 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0B-0008-002
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0008-002 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0B-0050-007
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0050-007 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0B-0054-011
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0054-011 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0B-0058-011
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0058-011 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
@@ -121,32 +136,44 @@ GOTO END
 :ERROR_FUSION_0F-0065-004
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0065-004 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0F-0068-003
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0068-003 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0F-0073-003
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0073-003 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
 :ERROR_FUSION_0F-0076-003
 CLS
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0076-003 (
-  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+    IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+  )
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
 )
 GOTO END
 
