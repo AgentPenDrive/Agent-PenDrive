@@ -9,7 +9,7 @@ TITLE=Agent PenDrive v1.6
 COLOR=CF
 
 [MAIN_CONFIG]
-DEF_LANG=English
+DEF_LANG=Polish
 FUSION_DIR=boot
 FUSION_VER=FUSION_1.2.0089
 BOOT=boot.bat
