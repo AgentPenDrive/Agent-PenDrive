@@ -35,7 +35,7 @@ GOTO OK
 :X64_BIT_SYSTEM ----------------------------------------------------------------
 CLS
 
-:: Propering...
+:: Propering... ----------------------------------------------------------------
 CLS
 ECHO.
 ECHO.
@@ -53,7 +53,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\Polish.xml) do IF %%a==AMD64_DIALOG_0 (
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_0 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -64,7 +64,7 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\Polish.xml) do IF %%
   IF %%b==8 ECHO %%c
 )
 
-:: Loading_Modules...
+:: Loading_Modules... ----------------------------------------------------------
 CLS
 ECHO.
 ECHO.
@@ -82,7 +82,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\Polish.xml) do IF %%a==AMD64_DIALOG_1 (
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_1 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -93,43 +93,147 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\Polish.xml) do IF %%
   IF %%b==8 ECHO %%c
 )
 CALL "$mods" /load_mods
-PAUSE
 
-IF NOT EXIST "%RAM%\KERNEL\mods" (
+IF NOT EXIST "%RAM%\KERNEL\modules" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_MODS
 )
 
-:: Loading_Variables...
+:: Loading_HAL... --------------------------------------------------------------
+CLS
 ECHO.
-ECHOC 0 15 Loading Variables...
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_2 (
+  IF %%b==1 ECHO %%c
+  IF %%b==2 ECHO %%c
+  IF %%b==3 ECHO %%c
+  IF %%b==4 ECHO %%c
+  IF %%b==5 ECHO %%c
+  IF %%b==6 ECHO %%c
+  IF %%b==7 ECHO %%c
+  IF %%b==8 ECHO %%c
+)
+CALL "hal.bat"
+
+IF %ERROR%==1 (
+  ECHOC 0 12 FAIL
+  GOTO ERROR_CANT_LOAD_HAL
+)
+
+:: Loading_Constants... --------------------------------------------------------
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_3 (
+  IF %%b==1 ECHO %%c
+  IF %%b==2 ECHO %%c
+  IF %%b==3 ECHO %%c
+  IF %%b==4 ECHO %%c
+  IF %%b==5 ECHO %%c
+  IF %%b==6 ECHO %%c
+  IF %%b==7 ECHO %%c
+  IF %%b==8 ECHO %%c
+)
 CALL "$var" -load_defaults
 
-:: IF EXIST "%RAM%\KERNEL\var" ECHOC 0 10 OK
 IF NOT EXIST "%RAM%\KERNEL\var" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_VARS
 )
 
-:: Loading_Libraries...
-ECHO. 
-ECHOC 0 15 Loading Libraries...
+:: Loading_Libraries... --------------------------------------------------------
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_4 (
+  IF %%b==1 ECHO %%c
+  IF %%b==2 ECHO %%c
+  IF %%b==3 ECHO %%c
+  IF %%b==4 ECHO %%c
+  IF %%b==5 ECHO %%c
+  IF %%b==6 ECHO %%c
+  IF %%b==7 ECHO %%c
+  IF %%b==8 ECHO %%c
+)
 CALL "$lib" -load_defaults
 
-:: IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
 IF NOT EXIST "%RAM%\KERNEL\lib" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_LIBS
 )
 
-:: Loading_Environment_Files...
+:: Loading_Environment_Files...  -----------------------------------------------
+CLS
 ECHO.
-ECHOC 0 15 Loading Environment Files...
-::ECHOC 0 14 Notice! Environment Files are temporary closed!
-ECHOC 0 15 Loading Environment Files...
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_5 (
+  IF %%b==1 ECHO %%c
+  IF %%b==2 ECHO %%c
+  IF %%b==3 ECHO %%c
+  IF %%b==4 ECHO %%c
+  IF %%b==5 ECHO %%c
+  IF %%b==6 ECHO %%c
+  IF %%b==7 ECHO %%c
+  IF %%b==8 ECHO %%c
+)
 CALL "$env" -load_defaults
 
-:: IF EXIST "%RAM%\KERNEL\lib" ECHOC 0 10 OK
 IF NOT EXIST "%RAM%\KERNEL\lib" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_ENVS

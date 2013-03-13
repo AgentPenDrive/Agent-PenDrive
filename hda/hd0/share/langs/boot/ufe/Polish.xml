@@ -194,7 +194,7 @@
   บ  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ  บ
   บ  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ  บ
   บ                                    บ
-  บ  adowowanie Zakoไczone!           บ
+  บ  adowowanie zakoไczone!           บ
   ศออออออออออออออออออออออออออออออออออออผ
 
 :: -----------------------------------------------------------------------------
@@ -213,35 +213,35 @@ AMD64_DIALOG_1=3=                  บ                 3%                 บ
 AMD64_DIALOG_1=4=                  บ  Ûฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
 AMD64_DIALOG_1=5=                  บ  Ûฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
 AMD64_DIALOG_1=6=                  บ                                    บ
-AMD64_DIALOG_1=7=                  บ  adowanie komponentขw...          บ
+AMD64_DIALOG_1=7=                  บ  adowanie moduขw...              บ
 AMD64_DIALOG_1=8=                  ศออออออออออออออออออออออออออออออออออออผ
 
-AMD64_DIALOG_3=  ษออออออออออออออออออออออออออออออออออออป
-AMD64_DIALOG_3=  บ              adowanie             บ
-AMD64_DIALOG_3=  บ                 7%%                 บ
-AMD64_DIALOG_3=  บ  ÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
-AMD64_DIALOG_3=  บ  ÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
-AMD64_DIALOG_3=  บ                                    บ
-AMD64_DIALOG_3=  บ  adowanie HAL...                  บ
-AMD64_DIALOG_3=  ศออออออออออออออออออออออออออออออออออออผ
+AMD64_DIALOG_2=1=                  ษออออออออออออออออออออออออออออออออออออป
+AMD64_DIALOG_2=2=                  บ              adowanie             บ
+AMD64_DIALOG_2=3=                  บ                 7%                 บ
+AMD64_DIALOG_2=4=                  บ  ÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
+AMD64_DIALOG_2=5=                  บ  ÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
+AMD64_DIALOG_2=6=                  บ                                    บ
+AMD64_DIALOG_2=7=                  บ  adowanie HAL...                  บ
+AMD64_DIALOG_2=8=                  ศออออออออออออออออออออออออออออออออออออผ
 
-AMD64_DIALOG_4=  ษออออออออออออออออออออออออออออออออออออป
-AMD64_DIALOG_4=  บ              adowanie             บ
-AMD64_DIALOG_4=  บ                 13%%                บ
-AMD64_DIALOG_4=  บ  ÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
-AMD64_DIALOG_4=  บ  ÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
-AMD64_DIALOG_4=  บ                                    บ
-AMD64_DIALOG_4=  บ  adowanie zmiennych ro...        บ
-AMD64_DIALOG_4=  ศออออออออออออออออออออออออออออออออออออผ
+AMD64_DIALOG_3=1=                  ษออออออออออออออออออออออออออออออออออออป
+AMD64_DIALOG_3=2=                  บ              adowanie             บ
+AMD64_DIALOG_3=3=                  บ                 13%                บ
+AMD64_DIALOG_3=4=                  บ  ÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
+AMD64_DIALOG_3=5=                  บ  ÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
+AMD64_DIALOG_3=6=                  บ                                    บ
+AMD64_DIALOG_3=7=                  บ  adowanie staych ro...          บ
+AMD64_DIALOG_3=8=                  ศออออออออออออออออออออออออออออออออออออผ
 
-AMD64_DIALOG_5=  ษออออออออออออออออออออออออออออออออออออป
-AMD64_DIALOG_5=  บ              adowanie             บ
-AMD64_DIALOG_5=  บ                 19%%                บ
-AMD64_DIALOG_5=  บ  ÛÛÛÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
-AMD64_DIALOG_5=  บ  ÛÛÛÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
-AMD64_DIALOG_5=  บ                                    บ
-AMD64_DIALOG_5=  บ  adowanie bibliotek...            บ
-AMD64_DIALOG_5=  ศออออออออออออออออออออออออออออออออออออผ
+AMD64_DIALOG_4=1=                  ษออออออออออออออออออออออออออออออออออออป
+AMD64_DIALOG_4=2=                  บ              adowanie             บ
+AMD64_DIALOG_4=3=                  บ                 19%                บ
+AMD64_DIALOG_4=4=                  บ  ÛÛÛÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
+AMD64_DIALOG_4=5=                  บ  ÛÛÛÛÛÛÛÛฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒฒ  บ
+AMD64_DIALOG_4=6=                  บ                                    บ
+AMD64_DIALOG_4=7=                  บ  adowanie bibliotek...            บ
+AMD64_DIALOG_4=8=                  ศออออออออออออออออออออออออออออออออออออผ
 
 AMD64_DIALOG_6=  ษออออออออออออออออออออออออออออออออออออป
 AMD64_DIALOG_6=  บ              adowanie             บ
@@ -357,7 +357,9 @@ AMD64_DIALOG_18=  บ                100%%                บ
 AMD64_DIALOG_18=  บ  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ  บ
 AMD64_DIALOG_18=  บ  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ  บ
 AMD64_DIALOG_18=  บ                                    บ
-AMD64_DIALOG_18=  บ  adowowanie Zakoไczone!           บ
+AMD64_DIALOG_18=  บ  adowowanie zakoไczone!           บ
 AMD64_DIALOG_18=  ศออออออออออออออออออออออออออออออออออออผ
 
 :: -----------------------------------------------------------------------------
+ERROR_MOD-LOAD_0A-0002-007="Bฅd! Nie moพna zaadowa moduu poniewaพ nie zosta zainstalowany!"
+ERROR_MOD-RUN_0A-0005-007="Bฅd! Nie moพna uruchomi moduu poniewaพ nie zosta zainstalowany!"
