@@ -35,12 +35,66 @@ GOTO OK
 :X64_BIT_SYSTEM ----------------------------------------------------------------
 CLS
 
-:: Loading_Modules...
+:: Propering...
+CLS
 ECHO.
-ECHOC 0 15 Loading Modules...
-CALL "$coms" /load_coms
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\Polish.xml) do IF %%a==AMD64_DIALOG_0 (
+  IF %%b==1 ECHO %%c
+  IF %%b==2 ECHO %%c
+  IF %%b==3 ECHO %%c
+  IF %%b==4 ECHO %%c
+  IF %%b==5 ECHO %%c
+  IF %%b==6 ECHO %%c
+  IF %%b==7 ECHO %%c
+  IF %%b==8 ECHO %%c
+)
 
-:: IF EXIST "%RAM%\KERNEL\mods" ECHOC 0 10 OK
+:: Loading_Modules...
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\Polish.xml) do IF %%a==AMD64_DIALOG_1 (
+  IF %%b==1 ECHO %%c
+  IF %%b==2 ECHO %%c
+  IF %%b==3 ECHO %%c
+  IF %%b==4 ECHO %%c
+  IF %%b==5 ECHO %%c
+  IF %%b==6 ECHO %%c
+  IF %%b==7 ECHO %%c
+  IF %%b==8 ECHO %%c
+)
+CALL "$mods" /load_mods
+PAUSE
+
 IF NOT EXIST "%RAM%\KERNEL\mods" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_MODS
