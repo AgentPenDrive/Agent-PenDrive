@@ -29,7 +29,6 @@ CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_5
 CALL "$env" -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\lib" GOTO ERROR_CANT_LOAD_ENVS
 :: -----------------------------------------------------------------------------
-COLOR 07
 GOTO OK 
 
 :X64_BIT_SYSTEM ----------------------------------------------------------------
@@ -234,10 +233,12 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
 )
 CALL "$env" -load_defaults
 
-IF NOT EXIST "%RAM%\KERNEL\lib" (
+IF NOT EXIST "%RAM%\KERNEL\env" (
   ECHOC 0 12 FAIL
   GOTO ERROR_CANT_LOAD_ENVS
 )
+
+GOTO OK
 
 :: ERRORS ----------------------------------------------------------------------
 
@@ -246,6 +247,7 @@ IF NOT EXIST "%RAM%\KERNEL\lib" (
 :: END -------------------------------------------------------------------------
 
 :OK
+COLOR 07
 SET ERROR=0
 
 :END
