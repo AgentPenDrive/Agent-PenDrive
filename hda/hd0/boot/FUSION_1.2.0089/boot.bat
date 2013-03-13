@@ -6,9 +6,9 @@ FOR /F "tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==DEF_LAN
 :CHECK -------------------------------------------------------------------------
 IF NOT EXIST "etc\boot\fusion.ap_conf" GOTO ERROR_FUSION_0B-0007-001
 IF NOT EXIST "etc\boot\ufe.ap_conf" GOTO ERROR_FUSION_0B-0008-002
-IF NOT EXIST "%BOOT_DIR%\includes\const\const.bat" GOTO ERROR_FUSION_0E-0009-007
-IF NOT EXIST "%BOOT_DIR%\includes\env\env.bat" GOTO ERROR_FUSION_0E-0010-011
-IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0011-015
+IF NOT EXIST "%BOOT_DIR%\includes\const\const.bat" GOTO ERROR_FUSION_0B-0009-007
+IF NOT EXIST "%BOOT_DIR%\includes\env\env.bat" GOTO ERROR_FUSION_0B-0010-011
+IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0B-0011-015
 
 :BOOT --------------------------------------------------------------------------
 :: INSTALLATION ------------------------------------------------------
@@ -93,25 +93,25 @@ FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF 
 )
 GOTO END
 
-:ERROR_FUSION_0E-0009-007
+:ERROR_FUSION_0B-0009-007
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0009-007 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0009-007 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0E-0010-011
+:ERROR_FUSION_0B-0010-011
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0010-011 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0010-011 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0E-0011-011
+:ERROR_FUSION_0B-0011-011
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0011-011 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0B-0011-011 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
