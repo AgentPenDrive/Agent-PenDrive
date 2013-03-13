@@ -1,9 +1,12 @@
 :: Errors ----------------------------------------------------------------------
 ERROR_FUSION_0B-0006-001="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0B-0006-001"
 ERROR_FUSION_0B-0007-002="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0B-0007-002"
-ERROR_FUSION_0E-0049-007="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0049-007"
-ERROR_FUSION_0E-0053-011="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0053-011"
-ERROR_FUSION_0E-0055-015="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0055-015"
-ERROR_FUSION_0F-0061-004="Wyst¥piˆ bˆ¥d podczas ˆadowania j¥dra! Kod bˆ©du: ERROR_FUSION_0F-0061-004"
-ERROR_FUSION_0F-0066-003="Wyst¥piˆ bˆ¥d podczas pr¢by wykonania j¥dra! Kod bˆ©du: ERROR_FUSION_0F-0066-003"
+ERROR_FUSION_0E-0008-007="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0008-007"
+ERROR_FUSION_0E-0009-011="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0009-011"
+ERROR_FUSION_0E-0010-015="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0010-015"
+ERROR_FUSION_0E-0011-015="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0011-015"
+ERROR_FUSION_0E-0065-015="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0065-015"
+ERROR_FUSION_0F-0068-004="Wyst¥piˆ bˆ¥d podczas ˆadowania j¥dra! Kod bˆ©du: ERROR_FUSION_0F-0068-004"
+ERROR_FUSION_0E-0073-015="Bˆ¥d! Nie mo¾na odnale«† wymaganych plik¢w. Nie mo¾na kontynuowa†! Kod bˆ©du: ERROR_FUSION_0E-0073-015"
+ERROR_FUSION_0F-0076-003="Wyst¥piˆ bˆ¥d podczas pr¢by wykonania j¥dra! Kod bˆ©du: ERROR_FUSION_0F-0076-003"
 :: -----------------------------------------------------------------------------
