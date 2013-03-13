@@ -7,24 +7,24 @@ KERNEL_LOADER=kernel_loader.bat
 SYSTEM=sys\system\sys16.ap_app -system
 SYSTEM_LOADER=sys\system\sys16.ap_app -system_loader
 
-[VARIABLES]
-VAR=LOCAL=AP_TMP=tmp
-VAR=LOCAL=API=sys\api
-VAR=LOCAL=APPS=usr\bin\apps
-VAR=LOCAL=BIN=bin
-VAR=LOCAL=COMS=bin\coms
-VAR=LOCAL=CMDS=sys\api\cmds
-VAR=LOCAL=ETC=etc
-VAR=LOCAL=ENV=sys\env
-VAR=LOCAL=FTP=var\ftp
-VAR=LOCAL=FUSION=boot\fusion
-VAR=LOCAL=LIB=lib
-VAR=LOCAL=MODS=lib\modules
-VAR=LOCAL=SYS=sys
-VAR=LOCAL=SYSTEM_DIR=sys\system
-VAR=LOCAL=REG_DIR=etc\modules\reg
-VAR=LOCAL=VAR=var
-VAR=LOCAL=CONSTS=var\const
+[CONSTANTS]
+CONST=LOCAL=AP_TMP=tmp
+CONST=LOCAL=API=sys\api
+CONST=LOCAL=APPS=usr\bin\apps
+CONST=LOCAL=BIN=bin
+CONST=LOCAL=COMS=bin\coms
+CONST=LOCAL=CMDS=sys\api\cmds
+CONST=LOCAL=ETC=etc
+CONST=LOCAL=ENV=sys\env
+CONST=LOCAL=FTP=var\ftp
+CONST=LOCAL=FUSION=boot\fusion
+CONST=LOCAL=LIB=lib
+CONST=LOCAL=MODS=lib\modules
+CONST=LOCAL=SYS=sys
+CONST=LOCAL=SYSTEM_DIR=sys\system
+CONST=LOCAL=REG_DIR=etc\modules\reg
+CONST=LOCAL=VAR=var
+CONST=LOCAL=CONSTS=var\const
 
 [ENVIRONMENT]
 ENV=DIR=LOCAL=sys\api
