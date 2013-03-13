@@ -1,23 +1,15 @@
-:: CLEAR_PATH ------------------------------------------------------------------
-:: PATH ;
+:: LOCAL -----------------------------------------------------------------------
 
-:: PATH ------------------------------------------------------------------------
-
-:: FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot\ufe.ap_conf) do (
-::   IF %%a==ENV (
-::     IF %%b==DIR (
-::       IF %%c==LOCAL CALL "%BOOT_DIR%\includes\env\includes\set_path.bat" /local %%d
-::       IF %%c==GLOBAL CALL "%BOOT_DIR%\includes\env\includes\set_path.bat" /global %%d
-::     )
-::   )
-:: )
+FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==CONST (
+  IF %%b==LOCAL SET %%c=%CD%\%%d
+)
 
 :: -----------------------------------------------------------------------------
 
-:: FILE ------------------------------------------------------------------------
+:: GLOBAL ----------------------------------------------------------------------
 
-:: FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot.ap_conf) do IF %%a==ENV (
-:: IF %%b==FILE PATH %%c;%PATH%
-:: )
+FOR /F "eol=[ tokens=1,2,3,4 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==CONST (
+  IF %%b==GLOBAL SET %%c=%%d
+)
 
 :: -----------------------------------------------------------------------------
