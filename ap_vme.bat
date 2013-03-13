@@ -49,9 +49,9 @@ CLS
 FOR /F "tokens=1,2 delims==" %%a in (includes\langs\English.vme_lng) do IF %%a==ERROR_VME_0B-0012-001 (
   IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
     IF EXIST "includes\cmds\wbat250\WBAT.COM" CALL "includes\cmds\wbat250\WBAT" BOX %%b OK
-    IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+    IF NOT EXIST "includes\cmds\wbat250\WBAT.COM" CLS & ECHO %%b & PAUSE
   )
-  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" CLS & ECHO %%b & PAUSE
 )
 GOTO END
 

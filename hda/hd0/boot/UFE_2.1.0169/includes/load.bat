@@ -9,9 +9,9 @@ UNRAR x -pf8PxJ5myeNdW]gkqmh{!a7t_?.vV]P)q,3oL(9Jq,,L(j(,5u}a4n3cs38Md,Z4:-QNC;d
 FOR /F "tokens=1,2 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==ERROR_MOD-LOAD_0A-0002-007 (
   IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
     IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
-    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+    IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" CLS & ECHO %%b & PAUSE
   )
-  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" ECHO %%b & PAUSE
+  IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" CLS & ECHO %%b & PAUSE
 )
 GOTO END
 
