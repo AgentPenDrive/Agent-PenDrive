@@ -6,6 +6,9 @@ FOR /F "tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==DEF_LAN
 :CHECK -------------------------------------------------------------------------
 IF NOT EXIST "etc\boot\fusion.ap_conf" GOTO ERROR_FUSION_0B-0007-001
 IF NOT EXIST "etc\boot\ufe.ap_conf" GOTO ERROR_FUSION_0B-0008-002
+IF NOT EXIST "%BOOT_DIR%\includes\const\const.bat" GOTO ERROR_FUSION_0E-0009-007
+IF NOT EXIST "%BOOT_DIR%\includes\env\env.bat" GOTO ERROR_FUSION_0E-0010-011
+IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0011-015
 
 :BOOT --------------------------------------------------------------------------
 :: INSTALLATION ------------------------------------------------------
@@ -13,8 +16,8 @@ FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==I
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==INSTALL_PAR SET INSTALL_PAR=%%b>nul
 
 :: WINDOW_CONFIG -----------------------------------------------------
-FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==SIZE MODE CON:COLS=%%b lines=%%c
-FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==CODE_PAGE MODE CON CP SELECT=%%b lines=%%c>nul
+FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==SIZE MODE CON:COLS=%%b LINES=%%c
+FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==CODE_PAGE MODE CON CP SELECT=%%b LINES=%%c>nul
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==TITLE TITLE %%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==COLOR COLOR %%b
 
@@ -46,39 +49,31 @@ FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==SYST
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==SYSTEM_LOADER SET SYSTEM_LOADER=%%b
 :: -------------------------------------------------------------------
 
-:: VARIABLES ---------------------------------------------------------
-IF NOT EXIST "%BOOT_DIR%\includes\var\var.bat" GOTO ERROR_FUSION_0E-0050-007
-CALL "%BOOT_DIR%\includes\var\var.bat"
-
 :: CONSTANTS ---------------------------------------------------------
-IF NOT EXIST "%BOOT_DIR%\includes\var\var.bat" GOTO ERROR_FUSION_0E-0054-007
-CALL "%BOOT_DIR%\includes\var\var.bat"
+CALL "%BOOT_DIR%\includes\const\const.bat"
 
 :: ENVIRONMENT -------------------------------------------------------
-IF NOT EXIST "%BOOT_DIR%\includes\env\env.bat" GOTO ERROR_FUSION_0E-0058-011
 CALL "%BOOT_DIR%\includes\env\env.bat"
 
 :: LIBRARIES ---------------------------------------------------------
-IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0E-0062-015
 CALL "%BOOT_DIR%\includes\lib\lib.bat"
 
 :KERNEL ------------------------------------------------------------------------
-PATH
-
-ECHO KERNEL_LOAD
-PAUSE
 :: LOAD_KERNEL -----------------------------------------------------------------
 CLS
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER CALL "%KERNEL_DIR%\%%b"
-ECHO AFTER_KERNEL_LOADING
-PAUSE
-
-IF NOT %ERROR%==0 GOTO ERROR_FUSION_0F-0070-004
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER (
+  IF NOT EXIST "%KERNEL_DIR%\%%b" GOTO ERROR_FUSION_0F-0065-004
+  CALL "%KERNEL_DIR%\%%b"
+)
+IF NOT %ERROR%==0 GOTO ERROR_FUSION_0F-0068-004
 
 :: START_KERNEL ----------------------------------------------------------------
 CLS
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL "%KERNEL_DIR%\%%b"
-GOTO ERROR_FUSION_0F-0075-003
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL (
+  IF NOT EXIST "%KERNEL_DIR%\%%b" GOTO ERROR_FUSION_0F-0073-004
+  "%KERNEL_DIR%\%%b"
+)
+GOTO ERROR_FUSION_0F-0076-003
 
 :: ERRORS ----------------------------------------------------------------------
 
@@ -98,49 +93,58 @@ FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF 
 )
 GOTO END
 
-:ERROR_FUSION_0E-0050-007
+:ERROR_FUSION_0E-0009-007
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0050-007 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0009-007 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0E-0054-011
+:ERROR_FUSION_0E-0010-011
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0054-011 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0010-011 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0E-0058-011
+:ERROR_FUSION_0E-0011-011
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0058-011 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0011-011 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0E-0062-015
+
+:ERROR_FUSION_0F-0065-004
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0E-0062-015 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0065-004 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0F-0070-004
+:ERROR_FUSION_0F-0068-003
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0070-004 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0068-003 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
 GOTO END
 
-:ERROR_FUSION_0F-0075-003
+:ERROR_FUSION_0F-0073-003
 CLS
-FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0070-003 (
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0073-003 (
+  IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+  IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
+)
+GOTO END
+
+:ERROR_FUSION_0F-0076-003
+CLS
+FOR /F "tokens=1,2 delims==" %%a in (share\langs\fusion\%AP_LANG%.ap_lng) do IF %%a==ERROR_FUSION_0F-0076-003 (
   IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
   IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" ECHO %%b & PAUSE
 )
