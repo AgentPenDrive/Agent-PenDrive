@@ -7,25 +7,25 @@ GOTO ARCHITECTURE_SELECT
 :X86_BIT_SYSTEM ----------------------------------------------------------------
 CLS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_0
+CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_0
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_1
+CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_1
 CALL "$mods" /load_mods
-IF NOT EXIST "%RAM%\KERNEL\com" GOTO ERROR_CANT_LOAD_MODS
+IF NOT EXIST "%RAM%\KERNEL\modules" GOTO ERROR_CANT_LOAD_MODS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_2
+CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_2
 CALL "hal.bat"
 IF %ERROR%==1 GOTO ERROR_CANT_LOAD_HAL
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_3
+CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_3
 CALL "$var" -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\var" GOTO ERROR_CANT_LOAD_VARS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_4
+CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_4
 CALL "$lib" /dll -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\lib" GOTO ERROR_CANT_LOAD_LIBS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\Polish.xml:LOADING_5
+CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_5
 CALL "$env" -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\lib" GOTO ERROR_CANT_LOAD_ENVS
 :: -----------------------------------------------------------------------------
