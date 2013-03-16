@@ -1,11 +1,15 @@
-[DLL]
-DLL=SYS=lib\libraries\dll
-DLL=USR=usr\lib\libraries\dll
+[DIRECTORIES]
+DLL=lib\libraries\dll
+DLL=usr\lib\libraries\dll
+SOL=lib\libraries\sol
+SOL=usr\lib\libraries\sol
+SYS=lib\libraries\sys
+SYS=usr\lib\libraries\sys
 
-[SOL]
-SOL=SYS=lib\libraries\sol
-SOL=USR=usr\lib\libraries\sol
-
-[SYS]
-SYS=SYS=lib\libraries\sys
-USR=SYS=usr\lib\libraries\sys
+[DEF_LIBRARIES]
+LIB=SYS=lib\sys\hal.ap_sys
+LIB=SOL=choice.ap_sol
+LIB=SOL=timeout.ap_sol
+LIB=SOL=tscmd.ap_sol
+LIB=SOL=wbat250.ap_sol
+LIB=SOL=winrar.ap_sol
