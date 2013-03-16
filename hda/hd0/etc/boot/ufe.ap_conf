@@ -7,6 +7,16 @@ KERNEL_LOADER=kernel_loader.bat
 SYSTEM=sys\system\sys16.ap_app -system
 SYSTEM_LOADER=sys\system\sys16.ap_app -system_loader
 
+[DIRECTORIES]
+DIR=BIN=bin
+DIR=BOOT=boot
+DIR=ETC=etc
+DIR=LIB=lib
+DIR=SHARE=share
+DIR=SYS=sys
+DIR=USR=usr
+DIR=VAR=var
+
 [CONSTANTS]
 CONST=LOCAL=AP_TMP=tmp
 CONST=LOCAL=API=sys\api

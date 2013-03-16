@@ -1,0 +1,11 @@
+[DLL]
+DLL=SYS=lib\libraries\dll
+DLL=USR=usr\lib\libraries\dll
+
+[SOL]
+SOL=SYS=lib\libraries\sol
+SOL=USR=usr\lib\libraries\sol
+
+[SYS]
+SYS=SYS=lib\libraries\sys
+USR=SYS=usr\lib\libraries\sys
