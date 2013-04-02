@@ -91,7 +91,7 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
   IF %%b==7 ECHO %%c
   IF %%b==8 ECHO %%c
 )
-CALL "$mods" /load_mods
+CALL "$mods" /load_def
 
 IF NOT EXIST "%RAM%\KERNEL\modules" (
   ECHOC 0 12 FAIL
@@ -127,6 +127,8 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
   IF %%b==8 ECHO %%c
 )
 CALL "hal.bat"
+ECHO ------------------------------------------------------------------------------
+PAUSE
 
 IF %ERROR%==1 (
   ECHOC 0 12 FAIL

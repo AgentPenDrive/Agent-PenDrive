@@ -59,6 +59,12 @@ IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0B-0058-015
 CALL "%BOOT_DIR%\includes\lib\lib.bat"
 
 :KERNEL ------------------------------------------------------------------------
+ECHO ------------------------------------------------------------------ %DATE% --%TIME% ------------------------------------------------------------------>>var\logs\const\log.log
+SET>>var\logs\const\log.log
+ECHO ------------------------------------------------------------------ %DATE% --%TIME% ------------------------------------------------------------------>>var\logs\env\log.log
+PATH>>var\logs\env\log.log
+ECHO ------------------------------------------------------------------ %DATE% --%TIME% ------------------------------------------------------------------>>var\logs\lib\log.log
+PATH>>var\logs\lib\log.log
 :: LOAD_KERNEL -----------------------------------------------------------------
 CLS
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER (

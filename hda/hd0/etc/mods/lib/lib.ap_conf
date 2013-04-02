@@ -1,15 +1,15 @@
 [DIRECTORIES]
-DLL=lib\libraries\dll
-DLL=usr\lib\libraries\dll
-SOL=lib\libraries\sol
-SOL=usr\lib\libraries\sol
-SYS=lib\libraries\sys
-SYS=usr\lib\libraries\sys
+DIR=DLL=lib\libraries\dll
+DIR=DLL=usr\lib\libraries\dll
+DIR=SOL=lib\libraries\sol
+DIR=SOL=usr\lib\libraries\sol
+DIR=SYS=lib\libraries\sys
+DIR=SYS=usr\lib\libraries\sys
 
 [DEF_LIBRARIES]
-LIB=SYS=lib\sys\hal.ap_sys
-LIB=SOL=choice.ap_sol
-LIB=SOL=timeout.ap_sol
-LIB=SOL=tscmd.ap_sol
-LIB=SOL=wbat250.ap_sol
-LIB=SOL=winrar.ap_sol
+LIB=SYS=hal
+LIB=SOL=choice
+LIB=SOL=timeout
+LIB=SOL=tscmd
+LIB=SOL=wbat250
+LIB=SOL=winrar

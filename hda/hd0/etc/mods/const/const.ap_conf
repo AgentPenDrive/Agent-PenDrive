@@ -1,6 +1,6 @@
 [DIRECTORIES]
-SYS=
-USR=
+DIR=SYS=sys\const
+DIR=USR=usr\const
 
 [DEF_CONSTANTS]
 CONST=LOCAL=AP_TMP=tmp
