@@ -18,7 +18,7 @@ DIR=USR=usr
 DIR=VAR=var
 
 [MODULES]
-MOD=var
+MOD=const
 MOD=env
 MOD=lib
 MOD=run
