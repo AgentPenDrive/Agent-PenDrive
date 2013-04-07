@@ -57,6 +57,7 @@ CALL "%BOOT_DIR%\includes\env\env.bat"
 :: LIBRARIES ---------------------------------------------------------
 IF NOT EXIST "%BOOT_DIR%\includes\lib\lib.bat" GOTO ERROR_FUSION_0B-0058-015
 CALL "%BOOT_DIR%\includes\lib\lib.bat"
+PAUSE
 
 :KERNEL ------------------------------------------------------------------------
 ECHO ------------------------------------------------------------------ %DATE% --%TIME% ------------------------------------------------------------------>>var\logs\const\log.log
