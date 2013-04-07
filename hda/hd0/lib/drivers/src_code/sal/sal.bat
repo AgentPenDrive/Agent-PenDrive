@@ -24,7 +24,7 @@ SET NT_VER=%NT_VER:~0,-1%
 SET NT_VER=NT_%NT_VER%
 
 :: CHECK_EXISTING_DRIVER_AND_LOAD ----------------------------------------------
-IF EXIST "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" CALL "$lib" /sys -load "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys"
+IF EXIST "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" CALL "$lib" /sys -load "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" & SET ERROR=0
 IF NOT EXIST "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" (
   FOR /F "tokens=1,2 delims==" %%a in (share\langs\lib\drivers\sal\%AP_LANG%.ap_lng) do IF %%a==ERROR_SAL_0A-0029 (
     IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
