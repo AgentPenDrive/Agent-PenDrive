@@ -14,8 +14,8 @@ CALL "$mods" /load_mods
 IF NOT EXIST "%RAM%\KERNEL\modules" GOTO ERROR_CANT_LOAD_MODS
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_2
-CALL "hal.bat"
-IF %ERROR%==1 GOTO ERROR_CANT_LOAD_HAL
+CALL "sal.bat"
+IF %ERROR%==1 GOTO ERROR_CANT_LOAD_SAL
 :: -----------------------------------------------------------------------------
 CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_3
 CALL "$var" -load_defaults
@@ -127,7 +127,7 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
   IF %%b==7 ECHO %%c
   IF %%b==8 ECHO %%c
 )
-CALL "hal.bat"
+CALL "sal.bat"
 ECHO ------------------------------------------------------------------------------
 PAUSE
 

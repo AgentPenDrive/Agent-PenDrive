@@ -24,12 +24,18 @@ SET NT_VER=%NT_VER:~0,-1%
 SET NT_VER=NT_%NT_VER%
 
 :: CHECK_EXISTING_DRIVER_AND_LOAD ----------------------------------------------
-IF EXIST "%SYS%\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" CALL "$lib" /sys -load "%SYS%\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys"
-IF NOT EXIST "%SYS%\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" (
-  WBAT Agent PenDrive Cannot find proper SAL driver. Try to use Windows Compatibility Troubleshooter to fix that problem, or download seperate SAL driver form Official Suppoort, in download section.
-  PAUSE
+IF EXIST "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" CALL "$lib" /sys -load "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys"
+IF NOT EXIST "lib\drivers\sal\%NT_VER%_%PROCESSOR_ARCHITECTURE%.ap_sys" (
+  FOR /F "tokens=1,2 delims==" %%a in (share\langs\lib\drivers\sal\%AP_LANG%.ap_lng) do IF %%a==ERROR_SAL_0A-0029 (
+    IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+      IF EXIST "bin\cmds\wbat250\WBAT.COM" CALL "bin\cmds\wbat250\WBAT" BOX %%b OK
+      IF NOT EXIST "bin\cmds\wbat250\WBAT.COM" CLS & ECHO %%b & PAUSE
+    )
+    IF "%PROCESSOR_ARCHITECTURE%"=="AMD64" CLS & ECHO %%b & PAUSE
+  )
   SET ERROR=1
 )
+
 
 :: END -------------------------------------------------------------------------
 RMDIR /Q /S "%RAM%\KERNEL\sal"
