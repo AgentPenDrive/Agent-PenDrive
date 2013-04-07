@@ -94,7 +94,8 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
 CALL "$mods" /load_def
 
 IF NOT EXIST "%RAM%\KERNEL\modules" (
-  ECHOC 0 12 FAIL
+  ECHO ERROR!
+  PAUSE
   GOTO ERROR_CANT_LOAD_MODS
 )
 
@@ -131,7 +132,8 @@ ECHO ---------------------------------------------------------------------------
 PAUSE
 
 IF %ERROR%==1 (
-  ECHOC 0 12 FAIL
+  ECHO ERROR!
+  PAUSE
   GOTO ERROR_CANT_LOAD_HAL
 )
 
@@ -166,7 +168,8 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
 CALL "$var" -load_defaults
 
 IF NOT EXIST "%RAM%\KERNEL\var" (
-  ECHOC 0 12 FAIL
+  ECHO ERROR!
+  PAUSE
   GOTO ERROR_CANT_LOAD_VARS
 )
 
@@ -201,7 +204,8 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
 CALL "$lib" -load_defaults
 
 IF NOT EXIST "%RAM%\KERNEL\lib" (
-  ECHOC 0 12 FAIL
+  ECHO ERROR!
+  PAUSE
   GOTO ERROR_CANT_LOAD_LIBS
 )
 
@@ -236,7 +240,8 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
 CALL "$env" -load_defaults
 
 IF NOT EXIST "%RAM%\KERNEL\env" (
-  ECHOC 0 12 FAIL
+  ECHO ERROR!
+  PAUSE
   GOTO ERROR_CANT_LOAD_ENVS
 )
 
