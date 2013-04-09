@@ -7,25 +7,25 @@ GOTO ARCHITECTURE_SELECT
 :X86_BIT_SYSTEM ----------------------------------------------------------------
 CLS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_0
+CALL "W.BAT" TEXT 18,20 @%SHARE%\langs\boot\ufe\%AP_LANG%.xml:LOADING_0
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_1
+CALL "W.BAT" TEXT 18,20 @%SHARE%\langs\boot\ufe\%AP_LANG%.xml:LOADING_1
 CALL "$mods" /load_mods
 IF NOT EXIST "%RAM%\KERNEL\modules" GOTO ERROR_CANT_LOAD_MODS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_2
+CALL "W.BAT" TEXT 18,20 @%SHARE%\langs\boot\ufe\%AP_LANG%.xml:LOADING_2
 CALL "sal.bat"
 IF %ERROR%==1 GOTO ERROR_CANT_LOAD_SAL
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_3
+CALL "W.BAT" TEXT 18,20 @%SHARE%\langs\boot\ufe\%AP_LANG%.xml:LOADING_3
 CALL "$var" -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\var" GOTO ERROR_CANT_LOAD_VARS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_4
+CALL "W.BAT" TEXT 18,20 @%SHARE%\langs\boot\ufe\%AP_LANG%.xml:LOADING_4
 CALL "$lib" /dll -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\lib" GOTO ERROR_CANT_LOAD_LIBS
 :: -----------------------------------------------------------------------------
-CALL "W.BAT" TEXT 18,20 @shared\langs\boot\ufe\%AP_LANG%.xml:LOADING_5
+CALL "W.BAT" TEXT 18,20 @%SHARE%\langs\boot\ufe\%AP_LANG%.xml:LOADING_5
 CALL "$env" -load_defaults
 IF NOT EXIST "%RAM%\KERNEL\lib" GOTO ERROR_CANT_LOAD_ENVS
 :: -----------------------------------------------------------------------------
@@ -52,7 +52,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_0 (
+FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_0 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -81,7 +81,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_1 (
+FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_1 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -117,7 +117,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_2 (
+FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_2 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -128,9 +128,6 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
   IF %%b==8 ECHO %%c
 )
 CALL "sal.bat"
-ECHO %ERROR%
-ECHO ------------------------------------------------------------------------------
-PAUSE
 
 IF %ERROR%==1 (
   ECHO ERROR!
@@ -156,7 +153,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_3 (
+FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_3 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -192,7 +189,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_4 (
+FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_4 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
@@ -228,7 +225,7 @@ ECHO.
 ECHO.
 ECHO.
 ECHO.
-FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_5 (
+FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do IF %%a==AMD64_DIALOG_5 (
   IF %%b==1 ECHO %%c
   IF %%b==2 ECHO %%c
   IF %%b==3 ECHO %%c
