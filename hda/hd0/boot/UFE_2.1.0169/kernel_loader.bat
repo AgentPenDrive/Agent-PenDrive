@@ -99,7 +99,7 @@ IF NOT EXIST "%RAM%\KERNEL\modules" (
   GOTO ERROR_CANT_LOAD_MODS
 )
 
-:: Loading_HAL... --------------------------------------------------------------
+:: Loading_SAL... --------------------------------------------------------------
 CLS
 ECHO.
 ECHO.
@@ -128,6 +128,7 @@ FOR /F "tokens=1,2,3 delims==" %%a in (share\langs\boot\ufe\%AP_LANG%.xml) do IF
   IF %%b==8 ECHO %%c
 )
 CALL "sal.bat"
+ECHO %ERROR%
 ECHO ------------------------------------------------------------------------------
 PAUSE
 
