@@ -15,12 +15,12 @@ IF %2==-load CALL "%MODDIR%\includes\dll\load.bat" %3 %4 %5 %6 %7 %8 %9
 IF %2==-load_defaults CALL "%MODDIR%\includes\dll\load_defaults.bat" %3 %4 %5 %6 %7 %8 %9
 GOTO END
 
-:SOL ---------------------------------------------------------------------------
-IF NOT EXIST "%RAM%\KERNEL\lib\sol" MD "%RAM%\KERNEL\lib\sol"
-IF %2==-clear_cache CALL "%MODDIR%\includes\sol\clear_cache.bat" %3 %4 %5 %6 %7 %8 %9
-IF %2==-kill_all CALL "%MODDIR%\includes\sol\free.bat" %3 %4 %5 %6 %7 %8 %9
-IF %2==-load CALL "%MODDIR%\includes\sol\load.bat" %3 %4 %5 %6 %7 %8 %9
-IF %2==-load_defaults CALL "%MODDIR%\includes\sol\load_defaults.bat" %3 %4 %5 %6 %7 %8 %9
+:SHL ---------------------------------------------------------------------------
+IF NOT EXIST "%RAM%\KERNEL\lib\sol" MD "%RAM%\KERNEL\lib\shl"
+IF %2==-clear_cache CALL "%MODDIR%\includes\shl\clear_cache.bat" %3 %4 %5 %6 %7 %8 %9
+IF %2==-kill_all CALL "%MODDIR%\includes\shl\free.bat" %3 %4 %5 %6 %7 %8 %9
+IF %2==-load CALL "%MODDIR%\includes\shl\load.bat" %3 %4 %5 %6 %7 %8 %9
+IF %2==-load_defaults CALL "%MODDIR%\includes\shl\load_defaults.bat" %3 %4 %5 %6 %7 %8 %9
 GOTO END
 
 :SYS ---------------------------------------------------------------------------
