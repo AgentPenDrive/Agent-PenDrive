@@ -163,9 +163,9 @@ FOR /F "tokens=1,2,3 delims==" %%a in (%SHARE%\langs\boot\ufe\%AP_LANG%.xml) do 
   IF %%b==7 ECHO %%c
   IF %%b==8 ECHO %%c
 )
-CALL "$var" -load_defaults
+CALL "$const" -load_defaults
 
-IF NOT EXIST "%RAM%\KERNEL\var" (
+IF NOT EXIST "%RAM%\KERNEL\const" (
   ECHO ERROR!
   PAUSE
   GOTO ERROR_CANT_LOAD_VARS
