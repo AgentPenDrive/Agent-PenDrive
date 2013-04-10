@@ -1,5 +1,5 @@
 :LOAD_LIST ---------------------------------------------------------------------
-DIR "%LIB%\dll\*.ap_dll" /b /a-d /one > "%RAM%\KERNEL\lib\dll\$libs_list.ap_ini"
+DIR "%LIB%\dll\*.ap_dll" /b /a-d /one>"%RAM%\KERNEL\lib\dll\$libs_list.ap_ini"
 GOTO SET_PATH
 
 :SET_PATH ----------------------------------------------------------------------
