@@ -7,7 +7,7 @@ FOR /F "tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==DEF_LAN
 IF NOT EXIST "etc\boot\fusion.ap_conf" GOTO ERROR_FUSION_0B-0007-001
 IF NOT EXIST "etc\boot\ufe.ap_conf" GOTO ERROR_FUSION_0B-0008-002
 
-:BOOT --------------------------------------------------------------------------
+:INITIALIZATION ----------------------------------------------------------------
 :: INSTALLATION ------------------------------------------------------
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==INSTALL_DRIVE SET INSTALL_DRIVE=%%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==INSTALL_PAR SET INSTALL_PAR=%%b>nul
@@ -18,27 +18,29 @@ FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a=
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==TITLE TITLE %%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==COLOR COLOR %%b
 
-:: MAIN_CONFIG -------------------------------------------------------
+:BOOT --------------------------------------------------------------------------
 :: FUSION --------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==FUSION_DIR SET FUSION_DIR=%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==FUSION_INSDIR SET FUSION_INSDIR=%%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==FUSION_VER SET FUSION_VER=%%b
-SET BOOT_DIR=%FUSION_DIR%\%FUSION_VER%
+SET FUSION=%ROOT%\%FUSION_INSDIR%\%FUSION_VER%
 :: BOOT ----------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==BOOT SET BOOT=%BOOT_DIR%\%%b
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==BOOT_LOADER SET BOOT_LOADER=%BOOT_DIR%\%%b
-:: -------------------------------------------------------------------
+:: FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==BOOT SET BOOT=%BOOT_DIR%\%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==BOOT_LOADER SET BOOT_LOADER=%FUSION%\%%b
+:: ---------------------------------------------------------
 
 :KERNEL ------------------------------------------------------------------------
-:: MAIN_CONFIG -------------------------------------------------------
 :: UFE -----------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==UFE_DIR SET UFE_DIR=%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==UFE_INSDIR SET UFE_INSDIR=%%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==UFE_VER SET UFE_VER=%%b
-SET KERNEL_DIR=%UFE_DIR%\%UFE_VER%
+SET UFE=%ROOT%\%UFE_INSDIR%\%UFE_VER%
 :: KERNEL --------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==CONSOLE SET CONSOLE=%KERNEL_DIR%\%%b
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL SET KERNEL=%KERNEL_DIR%\%%b
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER SET KERNEL_LOADER=%KERNEL_DIR%\%%b
-:: -------------------------------------------------------------------
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==CONSOLE SET CONSOLE=%UFE%\%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL SET KERNEL=%UFE%\%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==KERNEL_LOADER SET KERNEL_LOADER=%UFE%\%%b
+:: ---------------------------------------------------------
+
+SET | MORE
+PAUSE
 
 :SYSTEM ------------------------------------------------------------------------
 :: MAIN_CONFIG -------------------------------------------------------
