@@ -9,8 +9,8 @@ IF NOT EXIST "etc\boot\ufe.ap_conf" GOTO ERROR_FUSION_0B-0008-002
 
 :INITIALIZATION ----------------------------------------------------------------
 :: INSTALLATION ------------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==INSTALL_DRIVE SET INSTALL_DRIVE=%%b
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==INSTALL_PAR SET INSTALL_PAR=%%b>nul
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\boot_loader.ap_conf) do IF %%a==INSTALL_DRIVE SET INSTALL_DRIVE=%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\boot_loader.ap_conf) do IF %%a==INSTALL_PAR SET INSTALL_PAR=%%b>nul
 
 :: WINDOW_CONFIG -----------------------------------------------------
 FOR /F "eol=[ tokens=1,2,3 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==SIZE MODE CON:COLS=%%b LINES=%%c
@@ -44,10 +44,11 @@ PAUSE
 
 :SYSTEM ------------------------------------------------------------------------
 :: MAIN_CONFIG -------------------------------------------------------
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==SYSTEM SET SYSTEM=%%b
-FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\ufe.ap_conf) do IF %%a==SYSTEM_LOADER SET SYSTEM_LOADER=%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\sys\system.ap_conf) do IF %%a==SYSTEM SET SYSTEM=%%b
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\sys\system.ap_conf) do IF %%a==SYSTEM_LOADER SET SYSTEM_LOADER=%%b
 :: -------------------------------------------------------------------
 
+:ENVIRONMENT -------------------------------------------------------------------
 :: CONSTANTS ---------------------------------------------------------
 IF NOT EXIST "%BOOT_DIR%\includes\const\const.bat" GOTO ERROR_FUSION_0B-0050-007
 CALL "%BOOT_DIR%\includes\const\const.bat"
