@@ -1,6 +1,6 @@
 :PROPER ------------------------------------------------------------------------
 CD "%VME_DIR%\%1\%2"
-SET AP_DIR=%VME_DIR%\%1\%2
+SET ROOT=%VME_DIR%\%1\%2
 FOR /F "tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==DEF_LANG SET AP_LANG=%%b
 
 :CHECK -------------------------------------------------------------------------
