@@ -1,14 +1,17 @@
+ECHO BOOTSTRAP
+PAUSE
+
 :PROPER ------------------------------------------------------------------------
 CD "%VME_DIR%\%1\%2"
 SET ROOT=%VME_DIR%\%1\%2
-FOR /F "tokens=1,2 delims==" %%a in (etc\boot\fusion.ap_conf) do IF %%a==DEF_LANG SET AP_LANG=%%b
 
 :CHECK -------------------------------------------------------------------------
-IF NOT EXIST "etc\boot\fusion.ap_conf" GOTO ERROR_FUSION_0B-0007-001
-IF NOT EXIST "etc\boot\ufe.ap_conf" GOTO ERROR_FUSION_0B-0008-002
+IF NOT EXIST "etc\boot\bootstrap.ap_conf" GOTO ERROR_FUSION_0B-0007-001
+IF NOT EXIST "etc\boot\bootstrap.ap_conf" GOTO ERROR_FUSION_0B-0008-002
 
 :INITIALIZATION ----------------------------------------------------------------
 :: INSTALLATION ------------------------------------------------------
+FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\bootstrap.ap_conf) do IF %%a==DEF_LANG SET AP_LANG=%%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\bootstrap.ap_conf) do IF %%a==INSTALL_DRIVE SET INSTALL_DRIVE=%%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\bootstrap.ap_conf) do IF %%a==INSTALL_PAR SET INSTALL_PAR=%%b>nul
 
