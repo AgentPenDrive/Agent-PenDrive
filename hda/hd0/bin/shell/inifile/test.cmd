@@ -1,0 +1,8 @@
+@ECHO OFF
+TITLE INIFiles
+CLS
+
+:MENU
+CLS
+INIFILE "dupa.ini" [Users] Juby=JUBY3366
+PAUSE
