@@ -1,6 +1,3 @@
-ECHO BOOTSTRAP
-PAUSE
-
 :PROPER ------------------------------------------------------------------------
 CD "%VME_DIR%\%1\%2"
 SET ROOT=%VME_DIR%\%1\%2
@@ -41,9 +38,6 @@ FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\kernel.ap_conf) do IF %%a==C
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\kernel.ap_conf) do IF %%a==KERNEL SET KERNEL=%UFE%\%%b
 FOR /F "eol=[ tokens=1,2 delims==" %%a in (etc\boot\kernel.ap_conf) do IF %%a==KERNEL_LOADER SET KERNEL_LOADER=%UFE%\%%b
 :: ---------------------------------------------------------
-
-SET | MORE
-PAUSE
 
 :SYSTEM ------------------------------------------------------------------------
 :: MAIN_CONFIG -------------------------------------------------------
