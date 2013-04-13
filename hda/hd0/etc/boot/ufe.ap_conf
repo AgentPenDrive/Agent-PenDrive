@@ -1,5 +1,5 @@
 [MAIN_CONFIG]
-UFE_DIR=boot
+UFE_INSDIR=boot
 UFE_VER=UFE_2.1.0169
 CONSOLE=console.bat
 KERNEL=krnl16.bat
