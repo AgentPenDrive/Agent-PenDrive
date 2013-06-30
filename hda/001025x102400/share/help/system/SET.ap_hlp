@@ -1,0 +1,169 @@
+Wy˜wietla, ustawia i usuwa zmienne ˜rodowiskowe programu cmd.exe.
+
+SET [zmienna=[ci¥g]]
+
+  zmienna  Okre˜la nazw© zmiennej ˜rodowiskowej.
+  ci¥g     Okre˜la ci¥g znak¢w, kt¢ry ma by† przypisany zmiennej.
+
+Wpisz SET bez parametr¢w, aby wy˜wietli† bie¾¥ce zmienne ˜rodowiskowe.
+
+Przy wˆ¥czonych rozszerzeniach poleceä polecenie SET zmienia si© nast©puj¥co:
+
+Polecenie SET wywoˆane tylko z nazw¥ zmiennej, bez znaku r¢wno˜ci lub warto˜ci
+wy˜wietli warto˜† wszystkich zmiennych, kt¢rych prefiks odpowiada.
+nazwie podanej poleceniu SET. Na przykˆad:
+
+    SET P
+
+wy˜wietli wszystkie zmienne, kt¢rych nazwy zaczynaj¥ si© od litery 'P'
+
+Polecenie SET nada zmiennej ERRORLEVEL warto˜† 1, je˜li nazwy tej zmiennej
+nie mo¾na znale«† w bie¾¥cym ˜rodowisku.
+
+Polecenie SET nie zezwala, aby znak r¢wno˜ci (=) byˆ cz©˜ci¥ nazwy zmiennej.
+
+Do polecenia SET dodano dwa nowe przeˆ¥czniki:
+
+    SET /A wyra¾enie
+    SET /P zmienna=[ci¥g_monitu]
+
+Przeˆ¥cznik /A m¢wi, ¾e ci¥g po prawej stronie znaku r¢wno˜ci jest
+wyra¾eniem numerycznym, kt¢re jest obliczane. Program obsˆuguj¥cy
+obliczanie wyra¾eä jest bardzo prosty i obsˆuguje nast©puj¥ce operacje
+(wymienione wedˆug malej¥cego pierwszeästwa):
+
+    ()                  - grupowanie
+    ! ~ -               - operatory jednoargumentowe
+    * / %               - operatory arytmetyczne
+    + -                 - operatory arytmetyczne
+    << >>               - przesuni©cie logiczne
+    &                   - logiczne "i"
+    ^                   - logiczne wyˆ¥czne "lub"
+    |                   - logiczne "lub"
+    = *= /= %= += -=    - przypisanie
+      &= ^= |= <<= >>=
+    ,                   - separator wyra¾eä
+
+Je˜li u¾ywasz operator¢w logicznych lub modulo, ujmij ci¥g wyra¾enia
+w cudzysˆ¢w. Wszelkie nie numeryczne ci¥gi w wyra¾eniu s¥ traktowane jako
+zmienne ˜rodowiskowe, kt¢rych warto˜ci, przed ich u¾yciem, musz¥ by†
+konwertowane na liczby. Je˜li nazwa zmiennej ˜rodowiskowej jest podana, ale
+nie jest okre˜lona w bie¾¥cym ˜rodowisku, to u¾ywana jest warto˜† zero.
+Pozwala to na dziaˆania arytmetyczne z u¾yciem zmiennych ˜rodowiskowych bez
+potrzeby wpisywania znak¢w %, by uzyska† ich warto˜ci. Je˜li polecenie
+SET /A jest wykonywane z wiersza polecenia poza skryptem poleceä, to wy˜wietla
+ostateczn¥ warto˜† wyra¾enia. Operator przypisania wymaga nazwy zmiennej
+˜rodowiska po swojej lewej stronie. Warto˜ci liczbowe s¥ liczbami
+dziesi©tnymi, o ile nie s¥  poprzedzone znakami 0x (w¢wczas s¥ to liczby
+w postaci szesnastkowej), 0b (liczby dw¢jkowe) lub 0 (liczby ¢semkowe).
+Zatem 0x12 jest tym samym co 0b10010 i tym samym co 022. Zwr¢† uwag©,
+¾e zapis ¢semkowy  mo¾e by† myl¥cy: 08 i 09 nie s¥ poprawnymi liczbami,
+poniewa¾ 8 i 9 nie s¥ prawidˆowymi cyframi ¢semkowymi.
+
+Przeˆ¥cznik /P zezwala na ustawienie warto˜ci zmiennej dla wiersza wej˜cia
+wprowadzonego przez u¾ytkownika. Wy˜wietla okre˜lony ci¥g_monitu przed
+odczytaniem wiersza wej˜cia. Ci¥g_monitu mo¾e by† pusty.
+
+Podstawianie zmiennej ˜rodowiskowej zostaˆo ulepszone:
+
+    %PATH:str1=str2%
+
+rozwija zmienn¥ ˜rodowiskow¥ PATH, podstawiaj¥c ka¾de wyst¥pienie "str1"
+w rozwini©tym wyniku z "str2". "str2" mo¾e by† ci¥giem pustym w celu
+efektywnego usuwania wszystkich wyst¥pieä ci¥gu "str1" z rozwini©tego wyj˜cia.
+"str1" mo¾e zaczyna† si© od gwiazdki, w przypadku gdy dopasowuje wszystko od
+pocz¥tku rozwini©tego wyj˜cia do pierwszego wyst¥pienia pozostaˆej cz©˜ci str1.
+
+Mo¾na r¢wnie¾ okre˜li† podci¥gi dla rozwini©cia.
+
+    %PATH:~10,5%
+
+rozwinie zmienn¥ ˜rodowiskow¥ PATH, a nast©pnie u¾yje tylko 5 znak¢w
+zaczynaj¥cych si© od 11-tego (przesuni©cie 10) znaku rozwini©tego wyniku.
+Je˜li dˆugo˜† nie jest okre˜lona, wtedy jest domy˜lnie reszt¥ warto˜ci
+zmiennej. Je˜li tak¾e liczba (przesuni©cie lub dˆugo˜†) jest ujemna, wtedy
+u¾ywan¥ liczb¥ jest dˆugo˜† warto˜ci zmiennej ˜rodowiskowej dodanej
+do przesuni©cia lub okre˜lonej dˆugo˜ci.
+
+    %PATH:~-10%
+
+wyodr©bni ostatnie 10 znak¢w zmiennej PATH.
+
+    %PATH:~0,-2%
+
+wyodr©bni wszystkie opr¢cz ostatnich 2 znak¢w zmiennej PATH.
+
+Ostatecznie, dodano obsˆug© op¢«nionego rozwijania zmiennych ˜rodowiskowych.
+Obsˆuga ta jest zawsze wˆ¥czona domy˜lnie, ale mo¾e by† wˆ¥czana/wyˆ¥czana za
+pomoc¥ przeˆ¥cznika wiersza polecenia /V dla programu CMD.EXE. Zobacz CMD /?
+
+Op¢«nione rozwijanie zmiennych ˜rodowiskowych jest u¾yteczne do omijania
+ograniczeä bie¾¥cego rozwini©cia, kt¢re maj¥ miejsce gdy wiersz jest czytany,
+a nie kiedy jest wykonywany. Nast©puj¥cy przykˆad przedstawia problem
+z rozwini©ciem zmiennej natychmiastowej:
+
+    set VAR=przed
+    if "%VAR%" == "przed" (
+        set VAR=po
+        if "%VAR%" == "po" @echo Je˜li to widzisz, to zadziaˆaˆo
+    )
+
+nigdy nie wy˜wietli komunikatu, poniewa¾ %VAR% w instrukcjach BOTH IF jest
+podstawiana, kiedy czytana jest pierwsza instrukcja IF, poniewa¾ logicznie
+zawiera gˆ¢wne polecenie IF, kt¢re jest instrukcj¥ zˆo¾on¥. Dlatego IF
+wewn¥trz instrukcji zˆo¾onej faktycznie por¢wnuje "przed" z "po", kt¢re nigdy
+nie b©d¥ sobie r¢wne. Podobnie, nie zadziaˆa nast©puj¥cy przykˆad:
+
+    set LIST=
+    for %i in (*) do set LIST=%LIST% %i
+    echo %LIST%
+
+w kt¢rym nie zostanie zbudowana lista plik¢w w katalogu bie¾¥cym, ale zamiast
+tego zostanie ustawiona zmienna LIST na ostatni znaleziony plik. Dzieje si©
+tak, poniewa¾ zmienna %LIST% jest rozwijana tylko raz, kiedy czytana jest
+instrukcja FOR, a w tym czasie zmienna LIST jest pusta.
+Faktycznie wykonywan¥ p©tl¥ FOR jest:
+
+    for %i in (*) do set LIST= %i
+
+kt¢ra ustawia LIST na ostatni znaleziony plik.
+
+Op¢«nione rozwijanie zmiennych ˜rodowiskowych zezwala na u¾ywanie innego
+znaku (wykrzyknik) do rozwijania zmiennych ˜rodowiskowych w czasie
+wykonywania. Je˜li op¢«nione rozwijanie zmiennych jest wˆ¥czone, powy¾sze
+przykˆady mo¾na zapisa† jak poni¾ej, aby zadziaˆaˆy zgodnie z oczekiwaniami:
+
+    set VAR=przed
+    if "%VAR%" == "przed" (
+        set VAR=po
+        if "!VAR!" == "po" @echo Je˜li to widzisz, to zadziaˆaˆo
+    )
+
+    set LIST=
+    for %i in (*) do set LIST=!LIST! %i
+    echo %LIST%
+
+Przy wˆ¥czonych rozszerzeniach poleceä, istnieje kilka dynamicznych zmiennych
+˜rodowiskowych, kt¢re mo¾na rozwija†, ale kt¢re nie pojawiaj¥ si© na li˜cie
+zmiennych wy˜wietlanych przy u¾yciu polecenia SET. Te warto˜ci zmiennych s¥
+obliczane dynamicznie za ka¾dym razem, gdy warto˜† zmiennej jest rozwijana.
+Je˜li u¾ytkownik jawnie definiuje zmienn¥ z jedn¥ z tych nazw, wtedy definicja
+ta zast©puje nazw© dynamiczn¥ opisan¥ poni¾ej:
+
+%CD% - rozwija do ci¥gu katalogu bie¾¥cego.
+
+%DATE% - rozwija do bie¾¥cej daty u¾ywaj¥c tego samego formatu co polecenie
+         DATE.
+
+%TIME% - rozwija do bie¾¥cego czasu u¾ywaj¥c tego samego formatu co
+         polecenie TIME.
+
+%RANDOM% - rozwija do losowej liczby dziesi©tnej mi©dzy 0 a 32767.
+
+%ERRORLEVEL% - rozwija do bie¾¥cej warto˜ci ERRORLEVEL.
+
+%CMDEXTVERSION% - rozwija do bie¾¥cej liczby wersji rozszerzeä procesora
+                  poleceä.
+
+%CMDCMDLINE% - rozwija do oryginalnego wiersza polecenia, kt¢ry wywoˆaˆ
+               procesora poleceä.

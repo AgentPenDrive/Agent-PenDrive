@@ -1,0 +1,203 @@
+This file TSCMDIDX.TXT lists the contents of
+
+       1CMDFAQ.TXT NT/2000/XP/.. CMD.EXE Script Tricks
+       in ftp://garbo.uwasa.fi/pc/link/tscmd.zip
+       or http://garbo.uwasa.fi/pub/pc/link/tscmd.zip
+       Alternatively available with the version number as
+       ftp://garbo.uwasa.fi/pc/ts/tscmd53.zip
+       The FAQ file 1CMDFAQ.TXT is also available in HTML-format:
+       http://www.netikka.net/tsneti/info/tscmd.php
+
+--------------------------------------------------------------------
+1}  How to get today's date elements into environment variables?
+2}  On Windows XP how do you stop the script files from closing?
+3}  How can I customize the Command Prompt Window with script commands?
+4}  How can I test is it on MSDOS/Win3..9x/Me or NT/2000/XP?
+5}  How do I get a fully qualified path name of my script?
+6}  How does one get yesterday's date?
+7}  How can I test if two files agree in size and datetime stamp?
+8}  How do I find all the files made at or after YYYYMMDD HHMM?
+9}  How can I suppress script error messages altogether?
+10} How can I change the environment variable values within a FOR loop?
+11} How do I retain my original code page in these scripts?
+12} How can I rename all my .JPG files sequentially in a folder?
+13} How do I get the current day of the week?
+14} Help! My old batch files won't work since there is no choice.com
+15} Is it possible to echo without linefeed like the Unix echo -n?
+16} How can I get the time without having to press enter?
+17} How can I avoid the potential "ECHO is off." in echoing %myvar%
+18} How does one build re-usable script function modules?
+19} How can one build a delay / sleep / wait procedure for a script?
+20} Is is possible to right-justify numbers or words in a script?
+21} Do you have pointers to additional script material and tips?
+22} How do I capture the current folder name into a variable?
+23} How do I get the n'th, the first and the last line of a text file?
+24} How do I get the m'th item on the n'th line of a text file?
+25} How can I quote with e.g. "> " an entire message?
+26} How do I get the length of a string into a variable?
+27} How can I remove all the blank lines from a text file?
+28} How to convert a file written in IBM PC characters into LATIN1?
+29} How do I drop the first two characters of a string, and so on?
+30} Can one calculate the difference between two times in a script?
+31} How many days ago was 31.12.2003? What date was it 100 days ago?
+32} How can I convert a decimal number to binary, octal, hexadecimal?
+33} How can I convert a binary, octal, hexadecimal into a decimal?
+34} How can I remove the quote characters from a line?
+35} How can I substitute the second field on each line of my file?
+36} I start a program from my script and it hogs my command window.
+37} How can I insert a line in the middle of a file with a script?
+38} How can I set and test the errorlevel within a script file?
+39} Is there a subroutine to convert a variable into uppercase?
+40} How to get the number of and parse the arguments given to a script?
+41} How can I create a zero-byte file? How do I test for it?
+42} What is the subroutine for testing a filename for wildcards?
+43} Is there a way of counting the number of files in a folder?
+44} How do I get the first 68 columns from a text file?
+45} How can I find out how many days old a file is?
+46} Is a program available in the default folder or at path?
+47} Is it possible to echo the redirection symbol in a script?
+48} Why do some comment lines cause errors? What can I do about it?
+49} I need to reverse a text file. How do I do that fairly quickly?
+50} How do I get the position of a substring in a string?
+51} How can I echo lines in different colors in NT scripts?
+52} How can I enter a password into a variable without echoing it?
+53} How can I test if a disk device is ready or not?
+54} How can I get the type of a disk device?
+55} How to get the creation, last modified and last access of a file?
+56} How to find and move more recent files from one folder to another?
+57} How do I get a list of all my empty folders on c:\ ?
+58} How do I best combine two quoted arguments into one quoted string?
+59} How do I find if a folder exists? How about visible files in it?
+60} How do I delete all but most recent 20 files in a folder?
+61} How can one devise a command line calculator?
+62} How can I compare within a script if two files are identical?
+63} How to perform a command on each line of a file as an argument?
+64} How to count the number of lines in a file, empty lines inclusive?
+65} How do I add text in front and after each line in a text file?
+66} How can I delete all the hidden Thumbs.db files from my system?
+67} Is it possible to send a variable value to the clipboard?
+68} How can I test if a program already has been loaded?
+69} How do I get the first, or the last, 400 lines of a file?
+70} Calendar elements: What weekday was December 31, 2004?
+71} How can I reboot my computer from a command line script?
+72} Is it possible to use quotes as delims in for loops?
+73} How can I convert a hexadecimal string into an ASCII string?
+74} How can I compare two numbers that have decimals with IF?
+75} How do I detect if an object is a file or a folder?
+76} How do I create an empty file? How can I detect the empty files?
+77} How do I list the files in \All Users\Desktop in the short format?
+78} Is it possible automatically to record my logon times into a file?
+79} How can I trim leading and trailing spaces?
+80} How can I extract the last part of a path such as C:\ABC\DEF\GHI\?
+81} Is there a script to capitalize all the words in a text file?
+82} Why does echo 9>temp.txt fail while echo 10>temp.txt works?
+83} How to archive files with a rotation of five latest generations?
+84} How can I automate downloading files from an ftp-site?
+85} How to test if a folder contains any files with long names?
+86} How to put each line of a text file into an environment variable?
+87} How can I create a four-digit random string?
+88} How to convert DEC to HEX with a script file, and vice versa?
+89} All of a sudden "echo." doesn't work any more. What's wrong?
+90} How do I get the most recent file within a directory structure?
+91} How do I get command-line reference help?
+92} How do I play a sound or a tune from the command line?
+93} How do I check if my script was given a parameter?
+94} Can I send the script's output both to the screen and a log file?
+95} How to perform an operation on all the filenames listed in a file?
+96} Can one use a script to columnize a comma separated values file?
+97} I need to remove duplicate entries from the output or a file.
+98} How do I equate all zip files with the date of their latest file?
+99} How do I "touch" a file to update its last modified datestamp?
+100} How can I identify and copy the five latest files from a folder?
+101} How to capture Volume Serial Number into an environment variable?
+102} How can I extract the individual bits from a decimal byte?
+103} How do I exit a loop by pressing a key?
+104} How can one remove double quotes from a script variable?
+105} How to detect whether or not a folder contains hidden files?
+106} How to test whether a variable is a non-negative integer?
+107} How to do non-trivial renaming such as IMG*.jpg to IMG_*.jpg?
+108} How can I execute a script one line at a time to debug it?
+109} How do I open e.g. three separate instances of notepad at one go?
+110} Can I use a script to determine if a specific printer exists?
+111} How can I detect if a folder is shared or not?
+112} Help, an old program fails to run since I have no floppy drive.
+113} How do I find all *.TXT files on the C: drive sorted by size?
+114} How do I pick a file's lines that are three characters long?
+115} How can I decompose the path to be one folder per line?
+116} How do I get a list all the *.BAT files which are at path?
+117} Is it possible to get the physical memory from the cmd?
+118} How to handle irregular empty fields of a CSV file?
+119} How can I remove any leading zeros from an unsigned integer?
+120} How do I use AND/OR/XOR/NOT operators in an IF statement?
+121} How do I make a simple reminder to pop up on the desktop?
+122} How to list files present in folder A but not in folder B?
+123} How to test if a file is in a folder or below two or more times?
+124} How do I find files which do NOT contain the search string?
+125} How do I get the age of a file? Or of the files in a folder?
+126} How do I grep for a line with a tab?
+127} How can I pad leading zeros or like to a variable?
+128} How to prevent SET /P input from entering the command history?
+129} Is it possible to stop and reset the print spooler with a script?
+130} How do I find and delete files which contain a specific text?
+131} How to get the language of Windows XP in a script?
+132} How to find out the next weekday given today's?
+133} How do I get the current IP address, number and name?
+134} How do I advance the dates of my certain JPG files by one year?
+135} How do I get information about a file extension association?
+136} How do I find out when my PC was last booted?
+137} I need to resize a group of images from the command line.
+138} How can I get the long name of a short-named file or folder?
+139} How do I convert UNIX newlines to PC eolns? And vice versa?
+140} How do I count how many times a word appears in my text file?
+141} Why isn't the ! character always echoed as expected?
+142} How to extract the filename from the end of an URL reference?
+143} How do I get the current time zone in a script?
+144} How do I parse the items from a path like C:\a\b\c\d ?
+145} How to find out if WinXP SP2 is installed via a script?
+146} Using delayed expansion for giving variable values as arguments
+147} What was the time 100 minutes ago?
+148} How to calculate the day-of-year number with a pure cmd script?
+149} How to calculate a date's week number with a pure cmd script?
+150} How can I extract the http and ftp URL:s from an HTML file?
+151} Extract the lines of a text file from between two marker-lines?
+152} How can I remove all !:s and &:s from a text file with a script?
+153} How do I test if my Internet connection to an IP is working?
+154} How do I remove leading zeros from a string with script only?
+155} How can I use command-line to open a Windows Explorer window?
+156} How does one create a shortcut using the command-line?
+157} How to get the count of words and the last word of a variable?
+158} Why won't the statements within my if condition work properly?
+159} How do I test that a name does not contain lowercase letters?
+160} How do I get a list of all my folders with and sorted by size?
+161} How do I test that the Windows Script Host is available?
+162} Finding duplicate files in a directory tree.
+163} How do I test and ensure that CRLF is the last char (pair) of my file?
+164} How to concatenate (join/paste side by side) two files?
+165} How do I get the date and time separators and the local formats?
+166} Substituting spaces with underscores in a folder's file names.
+167} How do I find out who is logged on the system?
+168} How do I invoke Safely Remove Hardware using a cmd script?
+169} How to set the time server from cmd and how to synchronize the clock?
+170} How do I get the total size of a volume, not just the available space?
+171} How do I get a list of all the PC's folders with the attributes indicated?
+172} How to change and restore the title bar text of the command prompt?
+173} How do I get the original GUI path since CLI's may be changed?
+174} How to write a script to launch a URL invoking the default browser?
+175} How do I get the current video display resolution?
+176} How to get the rest of the command line parameters?
+177} How can I retrieve the target of a shortcut into a variable?
+178} How does one plug files' modified date/time into a set of file names?
+179} How to replace an asterisk "*" in an environment variable?
+180} I want to exit my script if it already has been run today.
+181} How do I get the IP-names for a logfile containing the IP-numbers?
+182} How do I protect a script, e.g. for a safe access of user passwords?
+183} How do I get the fileurl of a local filename?
+--------------------------------------------------------------------
+
+   All the best, Timo
+
+--
+Prof. Timo Salmi   mailto:ts@uwasa.fi    ftp & http://garbo.uwasa.fi/
+Hpage: http://www.uwasa.fi/laskentatoimi/english/personnel/salmitimo/
+Department of Accounting and Finance,   University of Vaasa,  Finland
+Useful CMD script tricks http://www.netikka.net/tsneti/info/tscmd.php

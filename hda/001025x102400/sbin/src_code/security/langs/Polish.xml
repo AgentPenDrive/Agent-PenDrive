@@ -1,0 +1,49 @@
+:: -----------------------------------------------------------------------------
+APP_NAME="Asystent Zabezpieczeä"
+NO_PATH="Najpierw musisz wybra† folder zanim b©dziesz m¢gˆ go doda†."
+NO_NAME="Najpierw musisz wprowadzi† nazw© zanim b©dziesz m¢gˆ doda† nowy katalog."
+NO_PATHS="Nie dodano ¾adnych katalog¢w."
+NAME_EXIST="Podana nazwa ju¾ istnieje!"
+PATH_EXIST="Podana ˜cie¾ka ju¾ istnieje!"
+EDIT=Edytuj=Usuä=Anuluj
+SUCCES="Asystent Zabezpieczeä zostaˆ pomyslnie zainstalowany!"
+FAIL="Podczas instalacji moduˆu Asystent Zabezpieczeä, wyst¥piˆ bˆ¥d. Instalacja nieudana!"
+:: -----------------------------------------------------------------------------
+:SETUP "Instalator moduˆu Asyst..." [X]
+     Wska¾ foldery kt¢re 
+    chcesz obj¥† ochron¥:
+ÄÄÄÄ Nazwa ÄÄÄÄÄÄÄÄÄ —cie¾ka ÄÄ
+[$ NAME          ] [Przegl¥daj]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Dodaj] [Lista dodanych]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+             1/1    [Dalej ÄÄ>]
+:: -----------------------------------------------------------------------------
+:EDIT "Wst©pna konfiguracja" [x]
+ÄÄÄÄ Nazwa ÄÄÄÄÄÄÄÄÄ —cie¾ka ÄÄ
+[$ NAME          ] [Przegl¥daj]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[<ÄÄ Wr¢†]                 [OK]
+:: -----------------------------------------------------------------------------
+:MENU "Asystent Zabezpieczeä" [x]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Szybkie zabezpieczanie       ]
+[Szyfrowanie                  ]
+[Wyjscie                      ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ %MENU_TIME% - %MENU_DATE%
+:QUICK_SECURE "Szybkie zabezpieczanie" [x]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Zabezpiecz                   ]
+[Odbezpiecz                   ]
+[Wyjscie                      ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ %MENU_TIME% - %MENU_DATE%
+:CRYPTING "Szyfrowanie" [x]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+[Zaszyfruj                    ]
+[Odszyfruj                    ]
+[Wyjscie                      ]
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ %MENU_TIME% - %MENU_DATE%
+:: -----------------------------------------------------------------------------

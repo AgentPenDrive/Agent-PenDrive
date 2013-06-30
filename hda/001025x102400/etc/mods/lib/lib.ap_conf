@@ -1,0 +1,15 @@
+[DIRECTORIES]
+DIR=DLL=lib\libraries\dll
+DIR=DLL=usr\lib\libraries\dll
+DIR=SOL=lib\libraries\sol
+DIR=SOL=usr\lib\libraries\sol
+DIR=SYS=lib\libraries\sys
+DIR=SYS=usr\lib\libraries\sys
+
+[DEF_LIBRARIES]
+LIB=SYS=sal=lib\drivers\sal
+LIB=SOL=choice
+LIB=SOL=timeout
+LIB=SOL=tscmd
+LIB=SOL=wbat250
+LIB=SOL=winrar
