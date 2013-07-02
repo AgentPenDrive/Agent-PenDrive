@@ -1,9 +1,0 @@
-[UI_SETTING]
-LANGUAGE=Polish
-[HDD]
-HDD=hda
-[CDD]
-CDD=cda
-[BOOT]
-BOOT=MASTER=HDD=hda
-BOOT=SLAVE=CDD=cda
