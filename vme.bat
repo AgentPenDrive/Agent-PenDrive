@@ -5,13 +5,13 @@ CLS
 :ENVIRONMENT -------------------------------------------------------------------
 CLS
 SET VME_DIR=%CD%
-SET VME-RAM=%CD%\media\ram
+SET VME_MEDIA_RAM=%CD%\media\ram
 
 :POST --------------------------------------------------------------------------
 CLS
 IF NOT EXIST "CMOS.vme_cmos" GOTO ERROR_VME_0B-0012-001
 IF EXIST "media\ram" RMDIR /Q /S "media\ram" & MD "media\ram"
-FOR /F "tokens=1,2 delims==" %%a in (config\CMOS.vme_cmos) do IF %%a==LANGUAGE SET VME_LANG=%%b
+FOR /F "tokens=1,2 delims==" %%a in (config\CMOS.vme_cmos) do IF %%a==LANGUAGE SET VME_CONFIG_LANG=%%b
 
 :BOOT --------------------------------------------------------------------------
 CLS
