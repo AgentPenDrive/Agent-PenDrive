@@ -1,24 +1,23 @@
-[CONFIG]
-DEV_TYPE=010000110101000001010101
+:INSTRUCTION -------------------------------------------------------------------
+IF "%1"=="0" (
+  IF "%2"=="0" (
+    SET $out=1
+    GOTO END
+  )
+  IF "%2"=="1" (
+    SET $out=0
+    GOTO END
+  )
+)
+IF "%1"=="1" (
+  IF "%2"=="0" (
+    SET $out=0
+    GOTO END
+  )
+  IF "%2"=="1" (
+    SET $out=1
+    GOTO END
+  )
+)
 
-[DEV_CONFIG]
-DEV_FREQUENCY={INHERITED}
-DEV_ARCHITECTURE={INHERITED}
-
-[DEV_INSTRUCTION_SET]
-DEV_INSTRUCTION="NOT"
-DEV_INSTRUCTION="AND"
-DEV_INSTRUCTION="NAND"
-DEV_INSTRUCTION="OR"
-DEV_INSTRUCTION="NOR"
-DEV_INSTRUCTION="XOR"
-DEV_INSTRUCTION="XNOR"
-DEV_INSTRUCTION="TS"
-
-[DEV_STORAGE]
-DEV_STORAGE=1
-DEV_STORAGE_ADRESS="media\cpu\cache\l1"
-DEV_STORAGE_SPACE=65536
-DEV_STORAGE2=1
-DEV_STORAGE2_ADRESS="media\cpu\cache\l2"
-DEV_STORAGE2_SPACE=524288
+:END ---------------------------------------------------------------------------
