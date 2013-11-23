@@ -1,8 +1,0 @@
-:MENU "Uruchom" [x]
-컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
-Plik: [$ FILE                                    ]
-컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
-[OK] [Anuluj] [Przeglad쩴]
-:NOT_EXIST "Uruchom" [x]
-Nie mo푣a odnale쳠 pliku.
-          [OK]
