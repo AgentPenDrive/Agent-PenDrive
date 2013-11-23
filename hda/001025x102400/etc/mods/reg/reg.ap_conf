@@ -1,6 +1,0 @@
-[DIRECTORIES]
-DIR=DLL=lib\libraries\dll
-DIR=DLL=usr\lib\libraries\dll
-
-[DEF_KEYS]
-REG=

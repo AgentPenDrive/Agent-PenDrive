@@ -1,8 +1,0 @@
-OPEN agent-pendrive.c0.pl
-apd2012@agent-pendrive.c0.pl
-AGENTPENDRIVE2012
-GET ver.ap_inf
-CLOSE
-QUIT
-
-mysql -h sql2.freesqldatabase.com -u sql24660 -pkN5!aT2% sql24660<"ap_vme.txt"
