@@ -1,5 +1,5 @@
 :: ----------------------------------------------------------------------------+
-:: Copyright (C) 2009 GitSoft                                                  :
+:: Copyright (C) 2009, 2013 GitSoft                                            :
 ::                                                                             :
 :: This file is part of Agent PenDrive.                                        :
 ::                                                                             :
@@ -16,7 +16,7 @@
 :: You should have received a copy of the GNU General Public License           :
 :: along with this program; if not, see <http://www.gnu.org/licenses/>.        :
 :: ----------------------------------------------------------------------------+
-:: Prawa autorskie (C) 2009 GitSoft                                            :
+:: Prawa autorskie (C) 2009, 2013 GitSoft                                      :
 ::                                                                             :
 :: Ten plik jest cz©˜ci¥ Agent PenDrive.                                       :
 ::                                                                             :
@@ -36,16 +36,21 @@
 :: je˜li nie, zobacz <http://www.gnu.org/licenses/>.                           :
 :: -----------------------------------------------------------------------------
 
-@Echo OFF
+:PROPER ========================================================================
 CLS
-TITLE Agent PenDrive - Sprawdzanie
+TITLE Agent PenDrive - Sprawdzanie sp¢jno˜ci programu
+GOTO CHECK_ACCES
 
-IF EXIST "%SystemRoot%\Agent PenDrive\Acces\ACCES.BAT" GOTO OTHER
-IF NOT EXIST "%SystemRoot%\Agent PenDrive\Acces\ACCES.BAT" GOTO NO ACCES
-:NO ACCES
-echo Brak uprawnien!
-PAUSE
-EXIT
+:CHECK_ACCES ===================================================================
+CLS
+IF "%LOGGED_IN"=="true" GOTO MENU
+IF NOT "%LOGGED_IN"=="true" (
+  @ECHO OFF
+  CLS
+  ECHO Nieautoryzowana pr¢ba dost©pu!
+  PAUSE
+  EXIT
+)
 
 :OTHER
 IF EXIST OTHER GOTO MUSIC

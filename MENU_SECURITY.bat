@@ -1,9 +1,9 @@
 :: ----------------------------------------------------------------------------+
-:: Copyright (C) 2009 GitSoft                                                  :
+:: Copyright (C) 2009, 2013 GitSoft                                            :
 ::                                                                             :
 :: This file is part of Agent PenDrive.                                        :
 ::                                                                             :
-:: This program is free software: you can redistribute it and/or modify        :
+:: This program is free software: you can redistribute it and/or modIFy        :
 :: it under the terms of the GNU General Public License as published by        :
 :: the Free Software Foundation, either version 3 of the License, or           :
 :: (at your option) any later version.                                         :
@@ -14,9 +14,9 @@
 :: GNU General Public License for more details.                                :
 ::                                                                             :
 :: You should have received a copy of the GNU General Public License           :
-:: along with this program; if not, see <http://www.gnu.org/licenses/>.        :
+:: along with this program; IF not, see <http://www.gnu.org/licenses/>.        :
 :: ----------------------------------------------------------------------------+
-:: Prawa autorskie (C) 2009 GitSoft                                            :
+:: Prawa autorskie (C) 2009, 2013 GitSoft                                      :
 ::                                                                             :
 :: Ten plik jest czฉciฅ Agent PenDrive.                                       :
 ::                                                                             :
@@ -36,61 +36,71 @@
 :: jeli nie, zobacz <http://www.gnu.org/licenses/>.                           :
 :: -----------------------------------------------------------------------------
 
-@Echo OFF
+:PROPER ========================================================================
 CLS
 TITLE Agent PenDrive - Zabezpieczanie 
 
-IF EXIST "%SystemRoot%\Agent PenDrive\Acces\ACCES.BAT" GOTO MENU
-IF NOT EXIST "%SystemRoot%\Agent PenDrive\Acces\ACCES.BAT" GOTO NO ACCES
-:NO ACCES
-echo Brak uprawnien!
-PAUSE
-EXIT
+:CHECK_ACCES ===================================================================
+CLS
+IF "%LOGGED_IN"=="true" GOTO MENU
+IF NOT "%LOGGED_IN"=="true" (
+  @ECHO OFF
+  CLS
+  ECHO Nieautoryzowana prขba dostฉpu!
+  PAUSE
+  EXIT
+)
 
-:MENU
+:CHECK_SECIRITY_STATE ==========================================================
 CLS
-VER
-TIME /T
-DATE /T
-echo ษออออออออออออออออออออออออออออออออออออป
-echo บ  Agent PenDrive - Zabezpieczanie   บ
-echo ศออออออออออออออออออออออออออออออออออออผ
-echo.
-echo ษออออออออออออออออออออออออออออออออออออป
-echo บ 1.* Odbezpiecz dane                บ
-echo บ 2.* Zabezpiecz dane                บ
-echo บ W.* Wroc                           บ
-echo ศออออออออออออออออออออออออออออออออออออผ
-set /p"cho=>"
-if %cho%==1 GOTO UNLOCK
-if %cho%==2 GOTO LOCK
-if %cho%==w MENU.BAT
-if %cho%==W MENU.BAT
+FOR /F "eol=# tokens=1,2 delims==" IN (apd_files\conf.ap_ini) DO (
+  IF "%%a"=="SEC_STATE" (
+    SET SEC_STATE==%%b
+  )
+)
+
+:MENU ==========================================================================
 CLS
-echo Blad!
+ECHO ษออออออออออออออออออออออออออออออออออออป
+ECHO บ  Agent PenDrive - Zabezpieczanie   บ
+ECHO ศออออออออออออออออออออออออออออออออออออผ
+ECHO ษออออออออออออออออออออหอออออออออออออออป
+ECHO บ Stan zabezpieczeไ: บ %SEC_STATE% บ
+ECHO ศออออออออออออออออออออสอออออออออออออออผ
+ECHO ษอออหออออออออออออออออออออออออออออออออป
+ECHO บ 1.บ Odbezpiecz dane                บ
+ECHO บ 2.บ Zabezpiecz dane                บ
+ECHO บ W.บ Wrข                           บ
+ECHO ศอออสออออออออออออออออออออออออออออออออผ
+SET /P OPT=">"
+IF "%OPT%"=="1" GOTO UNLOCK
+IF "%OPT%"=="2" GOTO LOCK
+IF "%OPT%"=="w" GOTO END
+IF "%OPT%"=="W" GOTO END
+GOTO MENU
+
+:UNLOCK ========================================================================
+CLS
+ATTRIB -S -H "OTHER"
+ATTRIB -S -H "MUSIC"
+ATTRIB -S -H "PICTURE"
+ATTRIB -S -H "VIDEO"
+ATTRIB -S -H "PS3"
+CLS
+ECHO Dane odbezpieczone!
 PAUSE
 GOTO MENU
 
-:UNLOCK
+:LOCK ==========================================================================
 CLS
-attrib -s -h "OTHER"
-attrib -s -h "MUSIC"
-attrib -s -h "PICTURE"
-attrib -s -h "VIDEO"
-attrib -s -h "PS3"
+ATTRIB +H +S "OTHER"
+ATTRIB +H +S "MUSIC"
+ATTRIB +H +S "PICTURE"
+ATTRIB +H +S "VIDEO"
+ATTRIB +H +S "PS3"
 CLS
-echo Dane odbezpieczone!
+ECHO Dane zabezpieczone!
 PAUSE
-MENU_SECURITY.BAT
+GOTO MENU
 
-:LOCK
-CLS
-attrib +h +s "OTHER"
-attrib +h +s "MUSIC"
-attrib +h +s "PICTURE"
-attrib +h +s "VIDEO"
-attrib +h +s "PS3"
-CLS
-echo Dane zabezpieczone!
-PAUSE
-MENU_SECURITY.BAT
+:END ===========================================================================

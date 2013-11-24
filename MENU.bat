@@ -1,9 +1,9 @@
 :: ----------------------------------------------------------------------------+
-:: Copyright (C) 2009 GitSoft                                                  :
+:: Copyright (C) 2009, 2013 GitSoft                                            :
 ::                                                                             :
 :: This file is part of Agent PenDrive.                                        :
 ::                                                                             :
-:: This program is free software: you can redistribute it and/or modify        :
+:: This program is free software: you can redistribute it and/or modIFy        :
 :: it under the terms of the GNU General Public License as published by        :
 :: the Free Software Foundation, either version 3 of the License, or           :
 :: (at your option) any later version.                                         :
@@ -14,9 +14,9 @@
 :: GNU General Public License for more details.                                :
 ::                                                                             :
 :: You should have received a copy of the GNU General Public License           :
-:: along with this program; if not, see <http://www.gnu.org/licenses/>.        :
+:: along with this program; IF not, see <http://www.gnu.org/licenses/>.        :
 :: ----------------------------------------------------------------------------+
-:: Prawa autorskie (C) 2009 GitSoft                                            :
+:: Prawa autorskie (C) 2009, 2013 GitSoft                                      :
 ::                                                                             :
 :: Ten plik jest czฉciฅ Agent PenDrive.                                       :
 ::                                                                             :
@@ -36,49 +36,49 @@
 :: jeli nie, zobacz <http://www.gnu.org/licenses/>.                           :
 :: -----------------------------------------------------------------------------
 
-@Echo OFF
+:PROPER ========================================================================
 CLS
 TITLE Agent PenDrive - Menu
-
-IF EXIST "%SystemRoot%\Agent PenDrive\Acces\ACCES.BAT" GOTO MENU
-IF NOT EXIST "%SystemRoot%\Agent PenDrive\Acces\ACCES.BAT" GOTO NO ACCES
-:NO ACCES
-echo Brak uprawnien!
-PAUSE
-EXIT
-
-:MENU
-CLS
-VER
-TIME /T
-DATE /T
-echo ษออออออออออออออออออออออออออออออออออออป
-echo บ        Agent PenDrive - Menu       บ
-echo ศออออออออออออออออออออออออออออออออออออผ
-echo.
-echo ษออออออออออออออออออออออออออออออออออออป
-echo บ 1.* Zabezpieczanie                 บ
-echo บ 2.* Odzyskiwanie Danych            บ
-echo บ 3.* Spojnosc Danych                บ
-echo บ 4.* Czyszczenie                    บ
-echo บ 5.* AntyWirus                      บ
-echo บ 6.* Kopia Zapasowa                 บ
-echo บ 7.* Panel Sterownia                บ
-echo บ 8.* O programie...                 บ
-echo บ W.* Wroc                           บ
-echo ศออออออออออออออออออออออออออออออออออออผ
-set /p"cho=>"
-if %cho%==1 "MENU_SECURITY.BAT"
-if %cho%==2 "MENU_RECOVER.BAT"
-if %cho%==3 "MENU_FILE SYSTEM.BAT"
-if %cho%==4 "MENU_CLEAR.BAT"
-if %cho%==5 "MENU_ANTIVIRUS.BAT"
-if %cho%==6 "MENU_BACKUP.BAT"
-if %cho%==7 "MENU_CONTROL PANEL.BAT"
-if %cho%==8 "MENU_ABOUT.BAT"
-if %cho%==w "START.BAT"
-if %cho%==W "START.BAT"
-CLS
-echo Blad!
-PAUSE
 GOTO MENU
+
+:CHECK_ACCES ===================================================================
+CLS
+IF "%LOGGED_IN"=="true" GOTO MENU
+IF NOT "%LOGGED_IN"=="true" (
+  @ECHO OFF
+  CLS
+  ECHO Nieautoryzowana prขba dostฉpu!
+  PAUSE
+  EXIT
+)
+
+:MENU ==========================================================================
+CLS
+ECHO ษออออออออออออออออออออออออออออออออออออป
+ECHO บ       Agent PenDrive - Menu        บ
+ECHO ศออออออออออออออออออออออออออออออออออออผ
+ECHO ษอออหออออออออออออออออออออออออออออออออป
+ECHO บ 1.บ Zabezpieczanie                 บ
+ECHO บ 2.บ Odzyskiwanie danych            บ
+ECHO บ 3.บ Sprawdzanie spขjnosci danych   บ
+ECHO บ 4.บ Oczyszczanie                   บ
+ECHO บ 5.บ Antytwirus                     บ
+ECHO บ 6.บ Kopia zapasowa                 บ
+ECHO บ 7.บ Panel sterownia                บ
+ECHO บ 8.บ O programie...                 บ
+ECHO บ W.บ Wroc                           บ
+ECHO ศอออสออออออออออออออออออออออออออออออออผ
+SET /P OPT=">"
+IF "%OPT%"=="1" CALL "MENU_SECURITY.BAT"
+IF "%OPT%"=="2" CALL "MENU_RECOVER.BAT"
+IF "%OPT%"=="3" CALL "MENU_FILE SYSTEM.BAT"
+IF "%OPT%"=="4" CALL "MENU_CLEAR.BAT"
+IF "%OPT%"=="5" CALL "MENU_ANTIVIRUS.BAT"
+IF "%OPT%"=="6" CALL "MENU_BACKUP.BAT"
+IF "%OPT%"=="7" CALL "MENU_CONTROL PANEL.BAT"
+IF "%OPT%"=="8" CALL "MENU_ABOUT.BAT"
+IF "%OPT%"=="w" GOTO END
+IF "%OPT%"=="W" GOTO END
+GOTO MENU
+
+:END ===========================================================================
