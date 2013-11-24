@@ -1,5 +1,5 @@
 :: ----------------------------------------------------------------------------+
-:: Copyright (C) 2009 GitSoft                                                  :
+:: Copyright (C) 2009, 2013 GitSoft                                         :
 ::                                                                             :
 :: This file is part of Agent PenDrive.                                        :
 ::                                                                             :
@@ -16,7 +16,7 @@
 :: You should have received a copy of the GNU General Public License           :
 :: along with this program; if not, see <http://www.gnu.org/licenses/>.        :
 :: ----------------------------------------------------------------------------+
-:: Prawa autorskie (C) 2009 GitSoft                                            :
+:: Prawa autorskie (C) 2009, 2013 GitSoft                                      :
 ::                                                                             :
 :: Ten plik jest cz©˜ci¥ Agent PenDrive.                                       :
 ::                                                                             :
@@ -36,33 +36,32 @@
 :: je˜li nie, zobacz <http://www.gnu.org/licenses/>.                           :
 :: -----------------------------------------------------------------------------
 
-@Echo OFF
-CLS
-TITLE Agent PenDrive - Weryfikacja
+:PROPER ========================================================================
+TITLE Agent PenDrive - Logowanie
 
-:CONFIRM PASSWORD
+:ENTER_PASSWORD ================================================================
 CLS
-VER
-TIME /T
-DATE /T
-echo Wprowadz haslo do programu. (W - Wroc)
-set/p "cho=>"
-if %cho%==JUBY GOTO CORRECT PASSWORD
-if %cho%==w START.BAT
-if %cho%==W START.BAT
-GOTO FAIL PASSWORD
+ECHO ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ECHO º     Agent PenDrive - Logowanie     º
+ECHO ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+ECHO Prosz© wprowadzi† hasˆo do programu: (W - Wr¢†)
+SET /P PASSWD=">"
+IF %PASSWD%=="JUBY" (
+  CLS
+  SET PASSWD=
+  SET LOGGED_IN=true
+  CALL "CHECK.BAT"
+  GOTO END
+)
+IF NOT "%PASSWD%"=="" (
+  SET PASSWD=
+  ECHO Nieprawidˆowe hasˆo!
+  PAUSE
+  GOTO ENTER_PASSWORD
+)
+IF %PASSWD%=="w" GOTO END
+IF %PASSWD%=="W" GOTO END
+GOTO ENTER_PASSWORD
 
-:FAIL PASSWORD
+:END ===========================================================================
 CLS
-echo Nieprawidlowe haslo!
-PAUSE
-GOTO CONFIRM PASSWORD
-
-:CORRECT PASSWORD
-CLS
-MD "%SystemRoot%\Agent PenDrive"
-MD "%SystemRoot%\Agent PenDrive\Acces"
-attrib -h -s "ACCES.BAT"
-COPY "ACCES.BAT" "%SystemRoot%\Agent PenDrive\Acces"
-attrib +h +s "ACCES.BAT"
-CHECK.BAT
