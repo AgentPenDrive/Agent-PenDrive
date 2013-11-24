@@ -38,7 +38,7 @@
 
 @Echo OFF
 CLS
-TITLE Agent Pendrive - Zmiena chasla
+TITLE Agent Pendrive - Zmiana hasla
 
 :CHANGE
 attrib -h -s "1.PASSWORD.BAT"
