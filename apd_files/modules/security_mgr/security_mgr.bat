@@ -55,7 +55,8 @@ IF NOT "%LOGGED_IN"=="true" (
 CLS
 FOR /F "eol=# tokens=1,2 delims==" IN (apd_files\conf.ap_ini) DO (
   IF "%%a"=="SEC_STATE" (
-    SET SEC_STATE==%%b
+    IF "%%b"=="true" SET SEC_STATE==Wˆ¥czone     
+    IF "%%b"=="false" SET SEC_STATE==Wyˆ¥czone    
   )
 )
 

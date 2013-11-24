@@ -37,39 +37,82 @@
 :: -----------------------------------------------------------------------------
 
 :PROPER ========================================================================
-@ECHO OFF
-TITLE Agent PenDrive
 CLS
-GOTO WELCOME_SCREEN
+TITLE Agent PenDrive - Odzyskiwanie danych
 
-:WELCOME_SCREEN ================================================================
+:CHECK_ACCES ===================================================================
 CLS
+IF "%LOGGED_IN"=="true" GOTO MENU
+IF NOT "%LOGGED_IN"=="true" (
+  @ECHO OFF
+  CLS
+  ECHO Nieautoryzowana prขba dostฉpu!
+  PAUSE
+  EXIT
+)
+
+:MENU ==========================================================================
+CLS
+ECHO ษออออออออออออออออออออออออออออออออออออป
+ECHO บAgent PenDrive - Odzyskiwanie Danychบ
+ECHO ศออออออออออออออออออออออออออออออออออออผ
 ECHO.
-ECHO                                  GitSoft
-ECHO                                Przedstawia:
-ECHO.
-ECHO                              Agent PenDrive
-ECHO                                  v1.5.1
-ECHO.
-ECHO.
-ECHO.
-ECHO.
-ECHO.
-ECHO.
-ECHO.
-ECHO.
-ECHO.
-ECHO	1.Logowanie	W.Wyjscie
+ECHO ษอออหออออออออออออออออออออออออออออออออป
+ECHO บ 1.บ Odzyskaj folder OTHER          บ
+ECHO บ 2.บ Odzyskaj folder VIDEO          บ
+ECHO บ 3.บ Odzyskaj folder MUSIC          บ
+ECHO บ 4.บ Odzyskaj folder PICTURE        บ
+ECHO บ 5.บ Odzyskaj folder PS3            บ
+ECHO บ W.บ Wroc                           บ
+ECHO ศอออสออออออออออออออออออออออออออออออออผ
 SET /P OPT=">"
-IF %OPT%=="0" CALL "FORGET_PASSWD.BAT"
-IF %OPT%=="1" CALL "LOGIN.BAT"
-IF %OPT%=="2" GOTO EDIT
-IF %OPT%=="w" GOTO END
-IF %OPT%=="W" GOTO END
-GOTO WELCOME_SCREEN
+IF "%OPT%"=="1" GOTO RECOVER_OTHER
+IF "%OPT%"=="2" GOTO RECOVER_VIDEO
+IF "%OPT%"=="3" GOTO RECOVER_MUSIC
+IF "%OPT%"=="4" GOTO RECOVER_PICTURE
+IF "%OPT%"=="5" GOTO RECOVER_PS3
+IF "%OPT%"=="W" GOTO END
+IF "%OPT%"=="W" GOTO END
+GOTO MENU
 
-:EDIT ==========================================================================
-TITLE Agent Pendrive - Edytor
-CALL "edit.COM"
+:RECOVER_OTHER
+CLS
+RECOVER "OTHER"
+CLS
+ECHO Odzyskiwanie zakonczone!
+PAUSE
+GOTO MENU
+
+:RECOVER_VIDEO
+CLS
+RECOVER "VIDEO"
+CLS
+ECHO Odzyskiwanie zakonczone!
+PAUSE
+GOTO MENU
+
+:RECOVER_MUSIC
+CLS
+RECOVER "MUSIC"
+CLS
+ECHO Odzyskiwanie zakonczone!
+PAUSE
+GOTO MENU
+
+:RECOVER_PICTURE
+CLS
+RECOVER "PICTURE"
+CLS
+ECHO Odzyskiwanie zakonczone!
+PAUSE
+GOTO MENU
+
+:RECOVER_PS3
+CLS
+RECOVER "PS3"
+CLS
+ECHO Odzyskiwanie zakonczone!
+PAUSE
+GOTO MENU
 
 :END ===========================================================================
