@@ -1,3 +1,6 @@
+[BOOTSECTOR]
+JUMP=boot\fusion-1.2.89.ap_bin
+
 [PARTITION_1]
 ACT_FLAG=1
 TYPE=PRIMARY
