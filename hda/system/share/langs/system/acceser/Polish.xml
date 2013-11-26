@@ -1,0 +1,14 @@
+:MENU "Logowanie" [x]
+Korzystanie z programu Agent
+PenDrive jest mo¾liwe dopiero po
+zalogowaniu. Prosz© wprowadzi†
+poni¾ej login oraz hasˆo:
+
+Login:   [$ LOGIN         ]
+
+Hasˆo:   [$ PASS,P        ]
+
+[ OK ] [Wyj˜cie]
+:: -----------------------------------------------------------------------------
+VALID=Witaj
+INVALID=Nieprawidˆowy login lub hasˆo!

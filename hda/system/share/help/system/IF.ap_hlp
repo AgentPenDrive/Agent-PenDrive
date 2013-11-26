@@ -1,0 +1,107 @@
+Wykonuje przetwarzanie warunkowe w programach wsadowych.
+
+IF [NOT] ERRORLEVEL liczba polecenie
+IF [NOT] ci¥g1==ci¥g2 polecenie
+IF [NOT] EXIST nazwa_pliku polecenie
+
+  NOT               Okre˜la, ¾e system Windows XP ma wykona† polecenie tylko
+                    wtedy, gdy warunek nie jest speˆniony.
+
+  ERRORLEVEL liczba Okre˜la prawd© (speˆnienie warunku), je˜li ostatnio
+                    wykonany program zwr¢ciˆ kod bˆ©du r¢wny lub wi©kszy od
+                    podanej liczby.
+
+  ci¥g1==ci¥g2      Okre˜la prawd© (speˆnienie warunku), je˜li podane ci¥gi
+                    tekstowe s¥ identyczne.
+  EXIST nazwa_pliku Okre˜la prawd© (speˆnienie warunku), je˜li plik o nazwie
+                    "nazwa_pliku" istnieje.
+
+  polecenie         Okre˜la polecenie wykonywane, je˜li warunek jest
+                    speˆniony. Po poleceniu mo¾e wyst¥pi† sˆowo kluczowe ELSE,
+                    co spowoduje wykonanie polecenia znajduj¥cego si© po
+                    sˆowie kluczowym ELSE, je¾eli podany warunek nie zostanie
+                    speˆniony.
+
+Konstrukcja ELSE musi wyst©powa† w tym samym wierszu, co polecenie wyst©puj¥ce
+po sˆowie IF. Na przykˆad:
+
+   IF EXIST nazwa_pliku. (
+       del nazwa_pliku.
+   ) ELSE (
+       echo Brak pliku "nazwa_pliku."
+   )
+
+Nast©puj¥ce polecenie nie dziaˆaˆoby, poniewa¾ polecenie del musi by†
+zakoäczone znakiem nowego wiersza:
+
+   IF EXIST nazwa_pliku. del nazwa_pliku. ELSE echo Brak pliku "nazwa_pliku."
+
+To polecenie r¢wnie¾ nie b©dzie dziaˆa†, poniewa¾ polecenie po sˆowie kluczowym
+ELSE musi by† w tym samym wierszu co koniec polecenia wyst©puj¥cego po sˆowie
+kluczowym IF:
+
+   IF EXIST nazwa_pliku. del nazwa_pliku.
+   ELSE echo Brak pliku "nazwa_pliku.".
+
+Poni¾sze polecenie b©dzie dziaˆa†, nawet gdy wszystkie polecenia zostan¥
+umieszczone w jednym wierszu:
+
+   IF EXIST nazwa_pliku. (del nazwa_pliku.) ELSE echo Brak pliku "nazwa_pliku."
+
+Je¾eli wˆ¥czone s¥ rozszerzenia poleceä, instrukcja IF zmienia si© nast©puj¥co:
+
+    IF [/I] ci¥g1 operator_por¢wnania ci¥g2 polecenie
+    IF CMDEXTVERSION liczba polecenie
+    IF DEFINED zmienna polecenie
+
+gdzie operator_por¢wnania mo¾e by† jednym z:
+
+    EQU - r¢wne
+    NEQ - nie r¢wne
+    LSS - mniejsze ni¾
+    LEQ - mniejsze ni¾ lub r¢wne
+    GTR - wi©ksze ni¾
+    GEQ - wi©ksze ni¾ lub r¢wne
+
+a u¾ycie przeˆ¥cznika /I powoduje wykonanie por¢wnania ci¥g¢w bez uwzgl©dniania
+wielko˜ci liter. Przeˆ¥cznik /I mo¾e by† r¢wnie¾ u¾yty przy por¢wnaniu
+ci¥g1==ci¥g2. S¥ to por¢wnania rodzajowe w tym sensie, ¾e, je¾eli zar¢wno
+ci¥g1, jak i ci¥g2 skˆadaj¥ si© wyˆ¥cznie z cyfr, ci¥gi s¥ konwertowane na
+liczby i wykonywane jest por¢wnanie numeryczne.
+
+Wyra¾enie warunkowe CMDEXTVERSION dziaˆa podobnie do zmiennej ERRORLEVEL,
+z wyj¥tkiem tego, ¾e jest to por¢wnanie z wewn©trznym numerem wersji
+skojarzonym z rozszerzeniami poleceä. Pierwszym numerem wersji jest 1. Warto˜†
+ta b©dzie zwi©kszana o 1, je¾eli do rozszerzeä poleceä dodane zostan¥ znacz¥ce
+ulepszenia. Wyra¾enie warunkowe CMDEXTVERSION nigdy nie jest prawdziwe, je¾eli
+rozszerzenia poleceä s¥ wyˆ¥czone.
+
+Wyra¾enie warunkowe DEFINED dziaˆa podobnie do wyra¾enia EXISTS, z wyj¥tkiem
+tego, ¾e argumentem jest nazwa zmiennej; wyra¾enie jest prawdziwe, je¾eli
+zmienna ˜rodowiskowa jest zdefiniowana.
+
+Wyra¾enie %ERRORLEVEL% jest rozwijane w reprezentacj© tekstow¥ bie¾¥cej
+warto˜ci zmiennej ERRORLEVEL przy zaˆo¾eniu, ¾e nie ma jeszcze zmiennej
+˜rodowiskowej o nazwie ERRORLEVEL, w kt¢rym to przypadku pobrana zostanie
+jej warto˜†. Po uruchomieniu programu, nast©puj¥ce przykˆadu ilustruj¥ u¾ycie
+zmiennej ERRORLEVEL:
+
+    goto odpowiedz%ERRORLEVEL%
+    :odpowiedz0
+    echo Program zwr¢ciˆ kod 0
+    :odpowiedz1
+    echo Program zwr¢ciˆ kod 1
+
+Mo¾na tak¾e u¾y† por¢wnaä numerycznych:
+
+    IF %ERRORLEVEL% LEQ 1 goto okay
+
+Wyra¾enie %CMDCMDLINE% jest rozwijane do oryginalnej postaci wiersza
+polecenia, przekazanego do programu CMD.EXE, przed jego przetworzeniem,
+przy zaˆo¾eniu, ¾e nie ma jeszcze zmiennej ˜rodowiskowej o nazwie CMDCMDLINE,
+w kt¢rym to przypadku pobrana zostanie jej warto˜†.
+
+Wyra¾enie %CMDEXTVERSION% jest rozwijane w reprezentacj© tekstow¥ bie¾¥cej
+warto˜ci zmiennej CMDEXTVERSION przy zaˆo¾eniu, ¾e nie ma jeszcze zmiennej
+˜rodowiskowej o nazwie CMDEXTVERSION, w kt¢rym to przypadku pobrana zostanie
+jej warto˜†.
