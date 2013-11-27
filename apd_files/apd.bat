@@ -40,7 +40,7 @@
 @ECHO OFF
 TITLE Agent PenDrive
 CLS
-GOTO WELCOME_SCREEN
+CD..
 
 :WELCOME_SCREEN ================================================================
 CLS
@@ -65,11 +65,11 @@ ECHO     บ  1.Logowanie  บ   Copyright (C) 2009, 2013 GitSoft    บ   W.Wyjscie  
 ECHO     ศอออออออออออออออสอออออออออออออออออออออออออออออออออออออออสอออออออออออออออผ
 ECHO.                                                                            
 SET /P OPT=">"
-IF %OPT%=="0" CALL "apd_files\modules\acces_mgr\acces_mgr.bat" /forget_passwd
-IF %OPT%=="1" CALL "apd_files\modules\acces_mgr\acces_mgr.bat" /login
-IF %OPT%=="2" GOTO EDIT
-IF %OPT%=="w" GOTO END
-IF %OPT%=="W" GOTO END
+IF "%OPT%"=="0" CALL "apd_files\modules\acces_mgr\acces_mgr.bat" /forget_passwd
+IF "%OPT%"=="1" CALL "apd_files\modules\acces_mgr\acces_mgr.bat" /login
+IF "%OPT%"=="2" GOTO EDIT
+IF "%OPT%"=="w" GOTO END
+IF "%OPT%"=="W" GOTO END
 GOTO WELCOME_SCREEN
 
 :EDIT ==========================================================================
