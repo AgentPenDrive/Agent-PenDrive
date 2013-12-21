@@ -1,4 +1,4 @@
-[BOOTSECTOR]
+[BOOT_SECTOR]
 JUMP=boot\fusion-0.1.2.8.ap_bin
 
 [PARTITION_1]
