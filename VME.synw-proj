@@ -10,7 +10,7 @@ SearchDirs=
 UserVars=
 MasksInc=
 MasksExc=exe,dll,lnk,zip,rar
-Folded=0,1,3,27,28,172,
+Folded=0,1,3,27,28,171,
 SelItem=0
 
 [Nodes]
@@ -44,7 +44,6 @@ SelItem=0
 .\:$procedures
 ..\{Proj}\includes\$procedures\$boot_cdd.bat
 ..\{Proj}\includes\$procedures\$boot_hdd.bat
-..\{Proj}\includes\$procedures\$error.bat
 ..\{Proj}\includes\$procedures\$post.bat
 .\:cmds
 ..\:Choice

@@ -1,9 +1,10 @@
 [UI_SETTING]
 LANGUAGE=Polish
-[HDD]
-HDD=hda
-[CDD]
-CDD=cda
+
+[MEDIA]
+MEDIA=CDD=cda=media\cda
+MEDIA=HDD=hda=media\hda
+
 [BOOT]
-BOOT=MASTER=HDD=hda
-BOOT=SLAVE=CDD=cda
+BOOT=1=cda
+BOOT=2=hda
